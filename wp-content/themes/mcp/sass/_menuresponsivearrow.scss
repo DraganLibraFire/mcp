@@ -1,0 +1,97 @@
+header {
+  #site-navigation {
+    > div {
+      background-color: $main_white;
+      bottom: 0;
+      overflow: auto;
+      position: fixed;
+      left: -100%;
+      top: 0;
+      @include transform-transition(all .5s);
+      height: 100%;
+      width: 30%;
+      z-index: 999;
+      .nav-menu {
+        .menu-item {
+          float: left;
+          text-align: left;
+          width: 100%;
+          padding: 0 10px 0 15px;
+          a {
+            color: $main_dark;
+          }
+        }
+      }
+    }
+    &.toggled {
+      > div {
+        left: 0;
+      }
+      .menu-toggle {
+        .fa {
+          &:before {
+            content: "\f00d";
+          }
+        }
+      }
+    }
+    .menu-toggle {
+      display: block;
+      background-color: transparent;
+      border: none;
+      color: $main_dark;
+      float: right;
+      font-size: 28px;
+      padding: 3px 2px;
+    }
+    ul {
+      &.nav-menu {
+        li {
+          margin-left: 0;
+          margin-right: 0;
+          &.menu-item-has-children {
+            @include transform-transition(all .5s);
+            &.expandeds {
+              > .arrow-toggle {
+                > .fa {
+                  &:before {
+                    content: "\f106";
+                  }
+                }
+              }
+            }
+          }
+          &.menu-item {
+            //height: 55px
+            line-height: 55px;
+            //overflow: hidden
+            .arrow-toggle {
+              color: $main_dark;
+              cursor: pointer;
+              display: inline-block;
+              font-size: 23px;
+              height: 100%;
+              margin-right: 0;
+              padding: 1px 21px;
+              position: absolute;
+              z-index: 99;
+              right: 0;
+              top: 0;
+            }
+          }
+        }
+      }
+      ul {
+        &.sub-menu {
+          display: none;
+          width: 100%;
+          margin-left: 0;
+          padding-top: 0;
+          top: 0;
+          left: 0;
+          position: relative;
+        }
+      }
+    }
+  }
+}

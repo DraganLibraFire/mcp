@@ -1,0 +1,8 @@
+<wpml-config>
+    <admin-texts>
+        <key name="theme_mods_yourtheme">
+            <key name="option_name_1" />
+            <key name="option_name_2" />
+        </key>
+    </admin-texts>
+</wpml-config>

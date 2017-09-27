@@ -1,0 +1,2 @@
+- Find and replace in sublime mcp to "themeslug"
+- Find and replace in sublime Startet to "Theme Name"
