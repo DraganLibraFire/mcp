@@ -863,7 +863,8 @@
 							if(self.ajax_results_url!="")
 							{
 								var this_url = self.getCleanURLwLang(self.ajax_results_url);
-								
+
+								this_url = this_url.replace("http",'https');
 								//now check if the browser supports history state push :)
 								if (window.history && window.history.pushState)
 								{

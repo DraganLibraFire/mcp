@@ -19,7 +19,7 @@
 				</p>
 			</div>
 			<div class="col-md-4 text-right section-single-post-header-inner-back-to-archive">
-				<a class="back-btn" href="<?php echo get_permalink( 9 ); ?>"><i class="fa fa-long-arrow-left" aria-hidden="true"></i><?php _e('Terug naar winkeloverzicht', 'mcp'); ?></a>
+				<a class="back-btn" href="<?php echo get_permalink( 9 ); ?><?php if( isset($_GET['view']) && $_GET['view'] == 'app' ): echo '?view=app'; endif;?>"><i class="fa fa-long-arrow-left" aria-hidden="true"></i><?php _e('Terug naar winkeloverzicht', 'mcp'); ?></a>
 			</div>
 		</div>
 	</header><!-- .entry-header -->

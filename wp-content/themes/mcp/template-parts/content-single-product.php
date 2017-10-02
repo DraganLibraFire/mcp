@@ -14,7 +14,7 @@ $image = get_field( 'images', $default_lang_id ) ? @get_field( 'images', $defaul
 
 <li class="single-product relative col-md-4">
 	<div class="single-product-image-wrapper">
-		<a href="<?php the_permalink(); ?>">
+		<a href="<?php the_permalink(); ?><?php if( isset($_GET['view']) && $_GET['view'] == 'app' ): echo '?view=app'; endif;?>">
 			<img src="<?php echo $image; ?>" alt="product image">
 		</a>
 	</div>
@@ -24,7 +24,7 @@ $image = get_field( 'images', $default_lang_id ) ? @get_field( 'images', $defaul
 				<?php the_brand_name( null, get_the_ID(), "" ); ?>
 			</div>
 			<div class="brand-link col-md-4">
-				<a href="<?php the_permalink(); ?>">
+				<a href="<?php the_permalink(); ?><?php if( isset($_GET['view']) && $_GET['view'] == 'app' ): echo '?view=app'; endif;?>">
 					<?php _e('Buy', 'mcp'); ?> <i class="fa fa-angle-right"></i>
 				</a>
 			</div>

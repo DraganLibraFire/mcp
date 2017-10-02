@@ -21,17 +21,22 @@
 			ajax_url: "<?php echo admin_url('admin-ajax.php'); ?>"
 		}
 	</script>
-	<?php if( isset($_GET['app']) ): ?>
+	<?php if( isset($_GET['view']) && $_GET['view'] == 'app' ): ?>
 		<style>
 
 			.site-footer,
 			.site-header{
 				display: none;
 			}
-
+			/*Der*/
+			.site-footer,
+			.site-header{
+				display: none;
+			}
 		</style>
 
 	<?php endif; ?>
+
 <?php wp_head(); ?>
 </head>
 
