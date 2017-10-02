@@ -19,45 +19,45 @@ jQuery(function($){
         closeSpeed:   300
     });
 
-    if( $('.searchandfilter > ul > li > ul').length > 0 ){
-
-
-        $('.searchandfilter > ul > li:not(.sf-field-taxonomy-product-color, .sf-field-taxonomy-product-sex) > ul').each(function(){
-            if( $(this).outerHeight() > slim_scroll_height ){
-                $(this).slimScroll({
-                    height: slim_scroll_height,
-                    size: '6px',
-                    position: 'right',
-                    railVisible: true,
-                    alwaysVisible: true,
-                    color: '#000',
-                    railColor: '#eaeaeb',
-                    railOpacity: 1,
-                    wheelStep: 10
-                });
-            }
-        })
-    }
-
-    if( $('.profiles-radio-wrapper.my-color-profile > ul').length > 0 ) {
-
-        $('.profiles-radio-wrapper.my-color-profile > ul').each(function(){
-            if( $(this).outerHeight() > slim_scroll_height ){
-                $(this).slimScroll({
-                    height: slim_scroll_height,
-                    size: '6px',
-                    position: 'right',
-                    railVisible: true,
-                    alwaysVisible: true,
-                    color: '#000',
-                    railColor: '#eaeaeb',
-                    railOpacity: 1,
-                    wheelStep: 10
-                });
-            }
-        })
-
-    }
+    //if( $('.searchandfilter > ul > li > ul').length > 0 ){
+    //
+    //
+    //    $('.searchandfilter > ul > li:not(.sf-field-taxonomy-product-color, .sf-field-taxonomy-product-sex) > ul').each(function(){
+    //        if( $(this).outerHeight() > slim_scroll_height ){
+    //            $(this).slimScroll({
+    //                height: slim_scroll_height,
+    //                size: '6px',
+    //                position: 'right',
+    //                railVisible: true,
+    //                alwaysVisible: true,
+    //                color: '#000',
+    //                railColor: '#eaeaeb',
+    //                railOpacity: 1,
+    //                wheelStep: 10
+    //            });
+    //        }
+    //    })
+    //}
+    //
+    //if( $('.profiles-radio-wrapper.my-color-profile > ul').length > 0 ) {
+    //
+    //    $('.profiles-radio-wrapper.my-color-profile > ul').each(function(){
+    //        if( $(this).outerHeight() > slim_scroll_height ){
+    //            $(this).slimScroll({
+    //                height: slim_scroll_height,
+    //                size: '6px',
+    //                position: 'right',
+    //                railVisible: true,
+    //                alwaysVisible: true,
+    //                color: '#000',
+    //                railColor: '#eaeaeb',
+    //                railOpacity: 1,
+    //                wheelStep: 10
+    //            });
+    //        }
+    //    })
+    //
+    //}
 
     $(".nav-tabs li").on('click', function(e){
         e.preventDefault();
@@ -423,5 +423,7 @@ jQuery(function($){
             }
         }
     })
+
+    //$(".hidden-filters .searchandfilter").mmenu();
 
 });

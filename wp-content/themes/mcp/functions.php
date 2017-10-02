@@ -4,7 +4,7 @@
  *
  * @package mcp
  */
-
+show_admin_bar(false);
 if ( ! function_exists( 'mcp_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -174,11 +174,17 @@ function mcp_scripts() {
 	wp_enqueue_style( 'mcp-grid', get_stylesheet_directory_uri().'/css/bootstrap.min.css' );
 	wp_enqueue_style( 'reset-css', get_stylesheet_directory_uri().'/css/reset.css' );
 	wp_enqueue_style( 'mcp-select2-css', get_template_directory_uri() . '/css/select2.min.css' );
+
 	wp_enqueue_style( 'lf-css', get_stylesheet_directory_uri().'/css/lf.css' );
+	wp_enqueue_style( 'lf-mmenu', get_stylesheet_directory_uri().'/css/jquery.mmenu.all.css' );
+
 	wp_enqueue_script( 'mcp-select2-js', get_template_directory_uri() . '/js/select2.min.js', array('jquery'), '25', true );
 	wp_enqueue_script( 'mcp-slimScroll-js', get_template_directory_uri() . '/js/jquery.slimscroll.min.js', array('jquery'), '2', true);
 	wp_enqueue_script( 'mcp-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20120206', true );
-	wp_enqueue_script( 'mcp-main', get_template_directory_uri() . '/js/main.js', array('jquery'), '20120206', true );
+
+	wp_enqueue_script( 'mcp-mmenu', get_template_directory_uri() . '/js/jquery.mmenu.all.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'mcp-main', get_template_directory_uri() . '/js/main.js', array('mcp-mmenu'), '20120206', true );
+
 	wp_enqueue_script( 'mcp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 	wp_enqueue_style( 'font-awesome', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
