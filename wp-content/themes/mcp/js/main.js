@@ -21,18 +21,18 @@ jQuery(function($){
         closeSpeed:   300
     });
 
-    function checkSize(){
-        if (window.matchMedia("(min-width: 991px)").matches) {
-            $("select").select2();
-        } else {
-            $("select").select2("destroy");
-        }
-    }
-
-    checkSize();
-
-    // run test on resize of the window
-    $(window).resize(checkSize);
+    //function checkSize(){
+    //    if (window.matchMedia("(min-width: 991px)").matches) {
+    //        $("select").select2();
+    //    } else {
+    //        $("select").select2("destroy");
+    //    }
+    //}
+    //
+    //checkSize();
+    //
+    //// run test on resize of the window
+    //$(window).resize(checkSize);
     $(".nav-tabs li").on('click', function(e){
         e.preventDefault();
         $(this).siblings().removeClass('active');
