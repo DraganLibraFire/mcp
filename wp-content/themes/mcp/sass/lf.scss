@@ -455,6 +455,9 @@ article {
     border: none;
   }
 }
+.back-menu-link-wrapper{
+  font-family: $primary_font;
+}
 .login-language-switcher-wrapper {
   select {
     border: 0 !important;
@@ -1372,8 +1375,11 @@ body {
 }
 .sort-wrapper {
   .sf-field-sort_order {
-    > h4 {
+    > a {
       padding: 5px 0 5px;
+      font-family: "Roboto", sans-serif;
+      color: #000;
+      font-weight: 500;
     }
   }
 }
@@ -1396,7 +1402,8 @@ body {
   }
 }
 /*---- sidebar styling ----*/
-.filters-main-wrapper {
+.filters-main-wrapper,
+body > .searchandfilter{
   padding-top: 16px;
   padding-bottom: 20px;
   .sf-item-0 {
@@ -1457,7 +1464,7 @@ body {
       cursor: pointer;
     }
   }
-  h4, h3 {
+  h4, h3, a {
     border-bottom: 2px solid $main_green;
     font-family: $primary_font;
     //font-size: 30px;
@@ -1467,6 +1474,8 @@ body {
     margin-top: 0;
     padding: 5px 0 8px;
     text-transform: uppercase;
+    display: block;
+    color: #000;
   }
   .sf-field-taxonomy-product-color {
     > ul {
@@ -1672,7 +1681,7 @@ body {
   }
 }
 .sf-field-sort_order {
-  h4 {
+  h4, a {
     display: inline-block;
     font-size: 24px;
     vertical-align: middle;
@@ -3024,5 +3033,7 @@ input[type="color"] {
     }
   }
 }
+
+
 /*-------------------- Responsive ---------------*/
 @import "responsive";

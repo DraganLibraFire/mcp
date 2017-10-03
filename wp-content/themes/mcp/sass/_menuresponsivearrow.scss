@@ -5,8 +5,8 @@ header {
       bottom: 0;
       overflow: auto;
       position: fixed;
-      left: -100%;
-      top: 0;
+      left: 0;
+      top: -100%;
       @include transform-transition(all .5s);
       height: 100%;
       width: 30%;
@@ -25,7 +25,7 @@ header {
     }
     &.toggled {
       > div {
-        left: 0;
+        top: 0;
       }
       .menu-toggle {
         .fa {

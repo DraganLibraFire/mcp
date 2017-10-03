@@ -52,3 +52,13 @@ Tags:
 .acf-map img {
     max-width: inherit !important;
 }
+/*@media (max-width: 600px) {*/
+    /*.hidden-filters .searchandfilter {*/
+        /*display: none !important;*/
+    /*}*/
+/*}*/
+/*@media (min-width: 601px) {*/
+    /*.hidden-filters .mm-searchandfilter{*/
+        /*display: none !important;*/
+    /*}*/
+/*}*/

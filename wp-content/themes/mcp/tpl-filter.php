@@ -32,7 +32,9 @@ get_header(); ?>
 							<span class="show-filters-button"><?php _e("Show filters", "mcp") ?></span>
 						</div>
 						<div class="hidden-filters">
-							<?php echo do_shortcode( '[searchandfilter id="192"]' ); ?>
+							<nav id="menu-mobile">
+								<?php echo do_shortcode( '[searchandfilter id="192"]' ); ?>
+							</nav>
 						</div>
 					</div>
 				</div>

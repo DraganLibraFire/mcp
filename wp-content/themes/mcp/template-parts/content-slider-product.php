@@ -16,7 +16,7 @@ $image = @get_field( 'images', $default_lang_id )[0]['sizes']['identity-slider-i
 <li class="single-product relative">
 	<div class="single-product-image-wrapper">
 		<a href="<?php echo get_the_permalink($product); ?>">
-			<img src="<?php echo $image; ?>" alt="product cover image">
+			<?php wp_image_add_srcset_and_sizes('<img  src="'. $image . '" alt="product cover image">'); ?>
 		</a>
 	</div>
 	<div class="single-product-content-wrapper ">
