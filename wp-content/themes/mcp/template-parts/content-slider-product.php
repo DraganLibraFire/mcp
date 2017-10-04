@@ -15,9 +15,10 @@ $image = @get_field( 'images', $default_lang_id )[0]['sizes']['identity-slider-i
 
 <li class="single-product relative">
 	<div class="single-product-image-wrapper">
-		<a href="<?php echo get_the_permalink($product); ?>">
-			<?php wp_image_add_srcset_and_sizes('<img  src="'. $image . '" alt="product cover image">'); ?>
+		<a href="<?php echo get_the_permalink($product); ?><?php if( isset($_GET['view']) && $_GET['view'] == 'app' ): echo '?view=app'; endif;?>">
+			<img src="<?php echo $image; ?>" alt="product image">
 		</a>
+
 	</div>
 	<div class="single-product-content-wrapper ">
 		<div class="single-product-content-wrapper-inner clearfix">

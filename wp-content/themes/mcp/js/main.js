@@ -521,7 +521,9 @@ jQuery(function($){
     $(".sf-field-taxonomy-product-profile input").on('click', handle_color_displaying);
     function handle_color_displaying(){
         var data_relation = $(this).data('related-colors');
-        console.log(data_relation);
+        if( data_relation.length > 0 ){
+
+        }
     }
 
 
