@@ -699,6 +699,9 @@
   }
 }/*(max-width: 790px)*/
 @media all and (max-width: 767px) {
+  .hidden-filters{
+    max-width: 80%;
+  }
   .head-wrap-single-post{
     display: block;
   }
