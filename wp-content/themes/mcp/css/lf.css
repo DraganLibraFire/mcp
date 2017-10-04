@@ -1899,7 +1899,7 @@ body:not(.home) .discover-section {
   .single-post-sidebar-wrapper .widget ul a {
     color: #000;
     font-family: "Roboto", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 300;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;

@@ -2334,7 +2334,7 @@ body:not(.home) {
       a {
         color: $main_dark;
         font-family: $primary_font;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 300;
         @include transform-transition(all .5s);
         &:hover {
