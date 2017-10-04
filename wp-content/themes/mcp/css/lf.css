@@ -704,6 +704,8 @@ body .select2-container--default .select2-results__option--highlighted[aria-sele
   padding-right: 15%; }
 .look-of-the-day-wrapper .image-content-left__content {
   padding-top: 10px; }
+  .look-of-the-day-wrapper .image-content-left__content p {
+    font-size: 12px; }
 
 /*-------------------- Join comunity section ---------------*/
 .section-community .section-community-inner {
