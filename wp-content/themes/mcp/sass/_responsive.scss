@@ -522,6 +522,7 @@
         li{
           &:first-child{
             width: 100%;
+            display: block !important;
           }
           height: 40px;
           width: 40px;

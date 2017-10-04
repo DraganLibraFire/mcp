@@ -1120,6 +1120,9 @@ body.home #main {
   color: #007A91; }
 
 /*---- sidebar styling ----*/
+.page-template-tpl-filter .featherlight-content {
+  max-width: 900px; }
+
 .filters-main-wrapper,
 body > .searchandfilter {
   padding-top: 16px;
@@ -1130,6 +1133,9 @@ body > .searchandfilter {
   .filters-main-wrapper .profiles-radio-wrapper.my-color-profile,
   body > .searchandfilter .profiles-radio-wrapper.my-color-profile {
     padding-bottom: 27px; }
+    .filters-main-wrapper .profiles-radio-wrapper.my-color-profile ul li:first-child,
+    body > .searchandfilter .profiles-radio-wrapper.my-color-profile ul li:first-child {
+      display: none; }
   .filters-main-wrapper ul,
   body > .searchandfilter ul {
     padding-left: 0;
@@ -1140,6 +1146,32 @@ body > .searchandfilter {
   .filters-main-wrapper .searchandfilter li,
   body > .searchandfilter .searchandfilter li {
     padding: 10px 0; }
+    .filters-main-wrapper .searchandfilter li .open-info-box,
+    body > .searchandfilter .searchandfilter li .open-info-box {
+      display: inline-block;
+      margin-left: 10px;
+      color: #007A91;
+      cursor: pointer; }
+    .filters-main-wrapper .searchandfilter li.has_smiley label:after,
+    body > .searchandfilter .searchandfilter li.has_smiley label:after {
+      position: absolute;
+      content: "\f118";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: white;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 20px;
+      height: 18px;
+      font-size: 110%;
+      text-align: center; }
     .filters-main-wrapper .searchandfilter li li,
     body > .searchandfilter .searchandfilter li li {
       padding: 1px 0; }
@@ -1258,7 +1290,8 @@ body > .searchandfilter {
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        position: absolute; }
+        position: absolute;
+        z-index: 2; }
     .filters-main-wrapper .sf-field-taxonomy-product-color > ul > li .category-name,
     body > .searchandfilter .sf-field-taxonomy-product-color > ul > li .category-name {
       color: transparent;
@@ -2513,29 +2546,30 @@ input[type="color"] {
 .featherlight .featherlight-close-icon {
   color: #f4a288 !important; }
 
-.featherlight-content {
+body:not(.page-template-tpl-filter) .featherlight-content {
   padding: 0 !important;
   border-bottom: 0 !important; }
-  .featherlight-content > span {
-    bottom: 0;
-    display: block;
-    height: 100%;
-    margin-bottom: auto;
-    margin-top: auto;
-    width: 45px;
-    top: 0; }
-    .featherlight-content > span.featherlight-next {
-      background: url("../images/slick-right.png") no-repeat center;
-      right: 0;
-      left: auto;
-      background-size: 52%; }
-    .featherlight-content > span.featherlight-previous {
-      background: url("../images/slick-left.png") no-repeat center;
-      right: auto;
-      left: 0;
-      background-size: 52%; }
-    .featherlight-content > span span img {
-      display: none !important; }
+
+.featherlight-content > span {
+  bottom: 0;
+  display: block;
+  height: 100%;
+  margin-bottom: auto;
+  margin-top: auto;
+  width: 45px;
+  top: 0; }
+  .featherlight-content > span.featherlight-next {
+    background: url("../images/slick-right.png") no-repeat center;
+    right: 0;
+    left: auto;
+    background-size: 52%; }
+  .featherlight-content > span.featherlight-previous {
+    background: url("../images/slick-left.png") no-repeat center;
+    right: auto;
+    left: 0;
+    background-size: 52%; }
+  .featherlight-content > span span img {
+    display: none !important; }
 
 /*-------------------- Responsive ---------------*/
 .arrow-toggle {
@@ -2944,7 +2978,8 @@ input[type="color"] {
         width: 40px;
         border: none !important; }
         .hidden-filters .sf-field-taxonomy-product-color ul li:first-child {
-          width: 100%; }
+          width: 100%;
+          display: block !important; }
         .hidden-filters .sf-field-taxonomy-product-color ul li:not(.sf-item-0) label {
           border: 1px solid #1a849a; }
     .hidden-filters ul li {

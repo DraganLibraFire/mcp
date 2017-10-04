@@ -1,6 +1,9 @@
 
 jQuery(function($){
 
+    var open_description_popup = $('<span class="open-info-box"><i class="fa fa-info-circle" aria-hidden="true"></i></span>');
+    $(".sf-field-taxonomy-product-color .heading-lf").append(open_description_popup);
+
     var slim_scroll_height = 260;
 
     var ajax_in_progress = false;
@@ -45,40 +48,9 @@ jQuery(function($){
         $(document).trigger('map_tab_changed');
     })
 
-    function convert_radion_to_color(){
-        $('.sf-field-taxonomy-product-color ul li[class*="sf-item-"], #mm-4 ul li[class*="sf-item-"]').each(function(){
-            var $list_item_wrapper = $(this);
 
-            var $list_item_text = $list_item_wrapper.text();
-            $list_item_text = $list_item_text.replace('-', '');
-            $list_item_text = $list_item_text.replace(/ /g, '');
 
-            $list_item_wrapper.find('label').css({
-                'background-color'  : $list_item_text
-            });
-
-            $($list_item_wrapper).animate({
-                opacity: 1
-            });
-        });
-    }
     var selected_shit = {};
-
-    convert_radion_to_color();
-
-    selected_shit = {}
-    $(document).on("sf:ajaxfinish", ".searchandfilter", function(e,a,s){
-        convert_radion_to_color();
-        update_breadcumb_data();
-        update_breadcrumbs();
-    });
-
-    $(document).on("sf:init", ".searchandfilter", function(e,a){
-        update_breadcumb_data();
-        update_breadcrumbs();
-    });
-
-
 
     $(".share-buttons a").on('click', function(e){
         e.preventDefault();
@@ -489,8 +461,10 @@ jQuery(function($){
 
                 $(this).removeClass('expanded');
             });
-        })
+        });
+
         $("#menu-mobile form > ul").prepend(back_btn_global);
+
         $(".hidden-filters .heading-lf, .hidden-filters .category-name").each(function(){
             var _this = this;
             var expand_btn = $("<span class='expand-menu-link'><i class='fa fa-chevron-right'></i></span>");
@@ -518,14 +492,72 @@ jQuery(function($){
 
     }
 
-    $(".sf-field-taxonomy-product-profile input").on('click', handle_color_displaying);
-    function handle_color_displaying(){
-        var data_relation = $(this).data('related-colors');
-        if( data_relation.length > 0 ){
+    function convert_radion_to_color(){
+        $('.sf-field-taxonomy-product-color ul li[class*="sf-item-"]').each(function(){
+            var $list_item_wrapper = $(this);
 
-        }
+            var $list_item_text = $list_item_wrapper.text();
+            $list_item_text = $list_item_text.replace('-', '');
+            $list_item_text = $list_item_text.replace(/ /g, '');
+
+            $list_item_wrapper.find('label').css({
+                'background-color'  : $list_item_text
+            });
+
+            $($list_item_wrapper).animate({
+                opacity: 1
+            });
+
+
+        });
+
+        $(".sf-field-taxonomy-product-profile input").on('click', function(){
+            handle_color_displaying( this );
+        });
     }
 
 
+    function handle_color_displaying( input ){
+        var data_relation = $(input).data('related-colors');
+        if( data_relation == undefined ) return;
+        if( data_relation.length > 0 ){
+            $(".sf-field-taxonomy-product-color li").css('display', 'none')
+            for( var i = 0; i < data_relation.length; i++ ){
+                var color_box = data_relation[i];
+                var color_box_li = $(".hidden-filters .sf-field-taxonomy-product-color li.sf-item-" + color_box.color);
+                $(color_box_li).css('display', 'inline-block');
+
+                if( color_box.has_smiley == 1 ){
+                    $(color_box_li).addClass('has_smiley');
+                } else{
+                    $(color_box_li).removeClass('has_smiley');
+                }
+            }
+        }
+    }
+
+    convert_radion_to_color();
+
+    $(document).on("sf:ajaxfinish", ".searchandfilter", function(e,a,s){
+        update_breadcumb_data();
+        update_breadcrumbs();
+    });
+
+    $(document).on("sf:init", ".searchandfilter", function(e,a){
+        update_breadcumb_data();
+        update_breadcrumbs();
+        if( $(".hidden-filters .sf-field-taxonomy-product-profile input:checked").length == 0 ){
+            $(".hidden-filters .sf-field-taxonomy-product-profile input").eq(0).prop( 'checked', true );
+        }
+
+        $(".open-info-box").off('click').on('click', function(){
+            var element = $( "#" + $(".hidden-filters .sf-field-taxonomy-product-profile input:checked").val() );
+
+            $.featherlight( $(element).html() );
+
+        })
+
+        handle_color_displaying( $(".hidden-filters .sf-field-taxonomy-product-profile input:checked").get() ) ;
+    });
 
 });

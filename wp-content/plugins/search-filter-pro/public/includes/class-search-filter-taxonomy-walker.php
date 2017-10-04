@@ -158,8 +158,9 @@ class Search_Filter_Taxonomy_Walker extends Walker_Category {
 								$checked = ' checked="checked"';
 							}
 						}
-						
-						$output .= "<li class='".SF_ITEM_CLASS_PRE."0'><label><input type='".$this->type."' name='".$sf_name."[]' value='0'".$checked." /> <span class='radio-button-after'></span>".$show_option_all_sf."</label></li>";
+						if( trim($show_option_all_sf) != 'none' ){
+							$output .= "<li class='".SF_ITEM_CLASS_PRE."0'><label><input type='".$this->type."' name='".$sf_name."[]' value='0'".$checked." /> <span class='radio-button-after'></span>".$show_option_all_sf."</label></li>";
+						}
 					}
 				}
 			}
@@ -228,7 +229,7 @@ class Search_Filter_Taxonomy_Walker extends Walker_Category {
 				
 				        // display a sub field value
 						$related_colors[] = [
-							'color' 		=> get_sub_field('related_color'),
+							'color' 		=> get_sub_field('related_color')->term_id,
 							'has_smiley' 	=> get_sub_field('has_smiley') ? 1 : 0
 						];
 				

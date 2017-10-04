@@ -623,7 +623,7 @@ class Search_Filter_Display_Shortcode {
 		{
 			if($field_data['heading']!="")
 			{
-				$returnvar .= "<a class='heading-lf' href='#'>".esc_html($field_data['heading'])."</a>";
+				$returnvar .= "<h4 class='heading-lf' href='#'>".esc_html($field_data['heading'])."</h4>";
 			}
 		}
 		

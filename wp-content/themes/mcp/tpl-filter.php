@@ -56,4 +56,21 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div>
 
+<div class="hidden">
+	<?php
+	$terms = get_terms( array( 'taxonomy' => 'product-profile', 'hide_empty' => false ) );
+
+	foreach( $terms as $term ){
+
+		?>
+
+		<li id="<?php echo $term->slug; ?>">
+			<?php the_field('popup_content', $term);?>
+		</li>
+
+		<?php
+	}
+	?>
+</div>
+
 <?php get_footer(); ?>
