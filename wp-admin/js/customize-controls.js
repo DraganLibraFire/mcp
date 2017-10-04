@@ -4534,7 +4534,7 @@
 								/*
 								 * Note that the setting revision will be undefined in the case of setting
 								 * values that are marked as dirty when the customizer is loaded, such as
-								 * when applying mcp content. All other dirty settings will have an
+								 * when applying starter content. All other dirty settings will have an
 								 * associated revision due to their modification triggering a change event.
 								 */
 								if ( setting._dirty && ( _.isUndefined( api._latestSettingRevisions[ setting.id ] ) || api._latestSettingRevisions[ setting.id ] <= latestRevision ) ) {
@@ -4722,7 +4722,7 @@
 			// Set default states.
 			changesetStatus( api.settings.changeset.status );
 			saved( true );
-			if ( '' === changesetStatus() ) { // Handle case for loading mcp content.
+			if ( '' === changesetStatus() ) { // Handle case for loading starter content.
 				api.each( function( setting ) {
 					if ( setting._dirty ) {
 						saved( false );

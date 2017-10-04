@@ -1929,14 +1929,14 @@ function get_editor_stylesheets() {
 }
 
 /**
- * Expand a theme's mcp content configuration using core-provided data.
+ * Expand a theme's starter content configuration using core-provided data.
  *
  * @since 4.7.0
  *
- * @return array Array of mcp content.
+ * @return array Array of starter content.
  */
-function get_theme_mcp_content() {
-	$theme_support = get_theme_support( 'mcp-content' );
+function get_theme_starter_content() {
+	$theme_support = get_theme_support( 'starter-content' );
 	if ( is_array( $theme_support ) && ! empty( $theme_support[0] ) && is_array( $theme_support[0] ) ) {
 		$config = $theme_support[0];
 	} else {
@@ -1946,48 +1946,48 @@ function get_theme_mcp_content() {
 	$core_content = array(
 		'widgets' => array(
 			'text_business_info' => array( 'text', array(
-				'title' => _x( 'Find Us', 'Theme mcp content' ),
+				'title' => _x( 'Find Us', 'Theme starter content' ),
 				'text' => join( '', array(
-					'<strong>' . _x( 'Address', 'Theme mcp content' ) . "</strong>\n",
-					_x( '123 Main Street', 'Theme mcp content' ) . "\n" . _x( 'New York, NY 10001', 'Theme mcp content' ) . "\n\n",
-					'<strong>' . _x( 'Hours', 'Theme mcp content' ) . "</strong>\n",
-					_x( 'Monday&mdash;Friday: 9:00AM&ndash;5:00PM', 'Theme mcp content' ) . "\n" . _x( 'Saturday &amp; Sunday: 11:00AM&ndash;3:00PM', 'Theme mcp content' )
+					'<strong>' . _x( 'Address', 'Theme starter content' ) . "</strong>\n",
+					_x( '123 Main Street', 'Theme starter content' ) . "\n" . _x( 'New York, NY 10001', 'Theme starter content' ) . "\n\n",
+					'<strong>' . _x( 'Hours', 'Theme starter content' ) . "</strong>\n",
+					_x( 'Monday&mdash;Friday: 9:00AM&ndash;5:00PM', 'Theme starter content' ) . "\n" . _x( 'Saturday &amp; Sunday: 11:00AM&ndash;3:00PM', 'Theme starter content' )
 				) ),
 				'filter' => true,
 				'visual' => true,
 			) ),
 			'text_about' => array( 'text', array(
-				'title' => _x( 'About This Site', 'Theme mcp content' ),
-				'text' => _x( 'This may be a good place to introduce yourself and your site or include some credits.', 'Theme mcp content' ),
+				'title' => _x( 'About This Site', 'Theme starter content' ),
+				'text' => _x( 'This may be a good place to introduce yourself and your site or include some credits.', 'Theme starter content' ),
 				'filter' => true,
 				'visual' => true,
 			) ),
 			'archives' => array( 'archives', array(
-				'title' => _x( 'Archives', 'Theme mcp content' ),
+				'title' => _x( 'Archives', 'Theme starter content' ),
 			) ),
 			'calendar' => array( 'calendar', array(
-				'title' => _x( 'Calendar', 'Theme mcp content' ),
+				'title' => _x( 'Calendar', 'Theme starter content' ),
 			) ),
 			'categories' => array( 'categories', array(
-				'title' => _x( 'Categories', 'Theme mcp content' ),
+				'title' => _x( 'Categories', 'Theme starter content' ),
 			) ),
 			'meta' => array( 'meta', array(
-				'title' => _x( 'Meta', 'Theme mcp content' ),
+				'title' => _x( 'Meta', 'Theme starter content' ),
 			) ),
 			'recent-comments' => array( 'recent-comments', array(
-				'title' => _x( 'Recent Comments', 'Theme mcp content' ),
+				'title' => _x( 'Recent Comments', 'Theme starter content' ),
 			) ),
 			'recent-posts' => array( 'recent-posts', array(
-				'title' => _x( 'Recent Posts', 'Theme mcp content' ),
+				'title' => _x( 'Recent Posts', 'Theme starter content' ),
 			) ),
 			'search' => array( 'search', array(
-				'title' => _x( 'Search', 'Theme mcp content' ),
+				'title' => _x( 'Search', 'Theme starter content' ),
 			) ),
 		),
 		'nav_menus' => array(
 			'link_home' => array(
 				'type' => 'custom',
-				'title' => _x( 'Home', 'Theme mcp content' ),
+				'title' => _x( 'Home', 'Theme starter content' ),
 				'url' => home_url( '/' ),
 			),
 			'page_home' => array( // Deprecated in favor of link_home.
@@ -2017,75 +2017,75 @@ function get_theme_mcp_content() {
 			),
 
 			'link_email' => array(
-				'title' => _x( 'Email', 'Theme mcp content' ),
+				'title' => _x( 'Email', 'Theme starter content' ),
 				'url' => 'mailto:wordpress@example.com',
 			),
 			'link_facebook' => array(
-				'title' => _x( 'Facebook', 'Theme mcp content' ),
+				'title' => _x( 'Facebook', 'Theme starter content' ),
 				'url' => 'https://www.facebook.com/wordpress',
 			),
 			'link_foursquare' => array(
-				'title' => _x( 'Foursquare', 'Theme mcp content' ),
+				'title' => _x( 'Foursquare', 'Theme starter content' ),
 				'url' => 'https://foursquare.com/',
 			),
 			'link_github' => array(
-				'title' => _x( 'GitHub', 'Theme mcp content' ),
+				'title' => _x( 'GitHub', 'Theme starter content' ),
 				'url' => 'https://github.com/wordpress/',
 			),
 			'link_instagram' => array(
-				'title' => _x( 'Instagram', 'Theme mcp content' ),
+				'title' => _x( 'Instagram', 'Theme starter content' ),
 				'url' => 'https://www.instagram.com/explore/tags/wordcamp/',
 			),
 			'link_linkedin' => array(
-				'title' => _x( 'LinkedIn', 'Theme mcp content' ),
+				'title' => _x( 'LinkedIn', 'Theme starter content' ),
 				'url' => 'https://www.linkedin.com/company/1089783',
 			),
 			'link_pinterest' => array(
-				'title' => _x( 'Pinterest', 'Theme mcp content' ),
+				'title' => _x( 'Pinterest', 'Theme starter content' ),
 				'url' => 'https://www.pinterest.com/',
 			),
 			'link_twitter' => array(
-				'title' => _x( 'Twitter', 'Theme mcp content' ),
+				'title' => _x( 'Twitter', 'Theme starter content' ),
 				'url' => 'https://twitter.com/wordpress',
 			),
 			'link_yelp' => array(
-				'title' => _x( 'Yelp', 'Theme mcp content' ),
+				'title' => _x( 'Yelp', 'Theme starter content' ),
 				'url' => 'https://www.yelp.com',
 			),
 			'link_youtube' => array(
-				'title' => _x( 'YouTube', 'Theme mcp content' ),
+				'title' => _x( 'YouTube', 'Theme starter content' ),
 				'url' => 'https://www.youtube.com/channel/UCdof4Ju7amm1chz1gi1T2ZA',
 			),
 		),
 		'posts' => array(
 			'home' => array(
 				'post_type' => 'page',
-				'post_title' => _x( 'Home', 'Theme mcp content' ),
-				'post_content' => _x( 'Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time.', 'Theme mcp content' ),
+				'post_title' => _x( 'Home', 'Theme starter content' ),
+				'post_content' => _x( 'Welcome to your site! This is your homepage, which is what most visitors will see when they come to your site for the first time.', 'Theme starter content' ),
 			),
 			'about' => array(
 				'post_type' => 'page',
-				'post_title' => _x( 'About', 'Theme mcp content' ),
-				'post_content' => _x( 'You might be an artist who would like to introduce yourself and your work here or maybe you&rsquo;re a business with a mission to describe.', 'Theme mcp content' ),
+				'post_title' => _x( 'About', 'Theme starter content' ),
+				'post_content' => _x( 'You might be an artist who would like to introduce yourself and your work here or maybe you&rsquo;re a business with a mission to describe.', 'Theme starter content' ),
 			),
 			'contact' => array(
 				'post_type' => 'page',
-				'post_title' => _x( 'Contact', 'Theme mcp content' ),
-				'post_content' => _x( 'This is a page with some basic contact information, such as an address and phone number. You might also try a plugin to add a contact form.', 'Theme mcp content' ),
+				'post_title' => _x( 'Contact', 'Theme starter content' ),
+				'post_content' => _x( 'This is a page with some basic contact information, such as an address and phone number. You might also try a plugin to add a contact form.', 'Theme starter content' ),
 			),
 			'blog' => array(
 				'post_type' => 'page',
-				'post_title' => _x( 'Blog', 'Theme mcp content' ),
+				'post_title' => _x( 'Blog', 'Theme starter content' ),
 			),
 			'news' => array(
 				'post_type' => 'page',
-				'post_title' => _x( 'News', 'Theme mcp content' ),
+				'post_title' => _x( 'News', 'Theme starter content' ),
 			),
 
 			'homepage-section' => array(
 				'post_type' => 'page',
-				'post_title' => _x( 'A homepage section', 'Theme mcp content' ),
-				'post_content' => _x( 'This is an example of a homepage section. Homepage sections can be any page other than the homepage itself, including the page that shows your latest blog posts.', 'Theme mcp content' ),
+				'post_title' => _x( 'A homepage section', 'Theme starter content' ),
+				'post_content' => _x( 'This is an example of a homepage section. Homepage sections can be any page other than the homepage itself, including the page that shows your latest blog posts.', 'Theme starter content' ),
 			),
 		),
 	);
@@ -2192,14 +2192,14 @@ function get_theme_mcp_content() {
 	}
 
 	/**
-	 * Filters the expanded array of mcp content.
+	 * Filters the expanded array of starter content.
 	 *
 	 * @since 4.7.0
 	 *
-	 * @param array $content Array of mcp content.
-	 * @param array $config  Array of theme-specific mcp content configuration.
+	 * @param array $content Array of starter content.
+	 * @param array $config  Array of theme-specific starter content configuration.
 	 */
-	return apply_filters( 'get_theme_mcp_content', $content, $config );
+	return apply_filters( 'get_theme_starter_content', $content, $config );
 }
 
 /**
@@ -2214,13 +2214,13 @@ function get_theme_mcp_content() {
  * @since 3.9.0 The `html5` feature now also accepts 'gallery' and 'caption'
  * @since 4.1.0 The `title-tag` feature was added
  * @since 4.5.0 The `customize-selective-refresh-widgets` feature was added
- * @since 4.7.0 The `mcp-content` feature was added
+ * @since 4.7.0 The `starter-content` feature was added
  *
  * @global array $_wp_theme_features
  *
  * @param string $feature  The feature being added. Likely core values include 'post-formats',
  *                         'post-thumbnails', 'html5', 'custom-logo', 'custom-header-uploads',
- *                         'custom-header', 'custom-background', 'title-tag', 'mcp-content', etc.
+ *                         'custom-header', 'custom-background', 'title-tag', 'starter-content', etc.
  * @param mixed  $args,... Optional extra arguments to pass along with certain features.
  * @return void|bool False on failure, void otherwise.
  */
@@ -2657,7 +2657,7 @@ function current_theme_supports( $feature ) {
 	 * The dynamic portion of the hook name, `$feature`, refers to the specific theme
 	 * feature. Possible values include 'post-formats', 'post-thumbnails', 'custom-background',
 	 * 'custom-header', 'menus', 'automatic-feed-links', 'html5',
-	 * 'mcp-content', and 'customize-selective-refresh-widgets'.
+	 * 'starter-content', and 'customize-selective-refresh-widgets'.
 	 *
 	 * @since 3.4.0
 	 *

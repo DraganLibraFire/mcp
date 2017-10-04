@@ -20,8 +20,8 @@ $image = get_the_post_thumbnail_url($article, 'recent-blog-post');
         </div>
         <div data-equal="recent-article-content" class="single-article-content-wrapper">
             <div class="single-article-content-wrapper-inner">
-                <h4 class="article-name" data-equal="recent-article-title">
-                    <a href="<?php echo get_the_permalink($article); ?>">
+                <h4 class="display-table article-name" data-equal="recent-article-title">
+                    <a class="display-table-cell alignvertical" href="<?php echo get_the_permalink($article); ?>">
                         <?php echo $article->post_title; ?>
                     </a>
                 </h4>
@@ -29,7 +29,7 @@ $image = get_the_post_thumbnail_url($article, 'recent-blog-post');
                 <div class="article-publish-date">
                     <?php _e('Published'); ?> | <?php echo get_the_time(get_option('date_format'), $article); ?>
                 </div>
-                <div class="article-desc">
+                <div class="article-desc" data-equal="article-desc">
                     <?php limit_text_lf('object_content', 150, true, $article->post_content); ?>
                 </div>
 

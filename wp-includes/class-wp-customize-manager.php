@@ -265,7 +265,7 @@ final class WP_Customize_Manager {
 		}
 
 		$this->original_stylesheet = get_stylesheet();
-		$this->theme = wp_get_theme( $args['theme'] );
+		$this->theme = wp_get_theme( 0 === validate_file( $args['theme'] ) ? $args['theme'] : null );
 		$this->messenger_channel = $args['messenger_channel'];
 		$this->_changeset_uuid = $args['changeset_uuid'];
 
@@ -544,12 +544,12 @@ final class WP_Customize_Manager {
 		}
 
 		/*
-		 * Import theme mcp content for fresh installs when landing in the customizer.
-		 * Import mcp content at after_setup_theme:100 so that any
-		 * add_theme_support( 'mcp-content' ) calls will have been made.
+		 * Import theme starter content for fresh installs when landing in the customizer.
+		 * Import starter content at after_setup_theme:100 so that any
+		 * add_theme_support( 'starter-content' ) calls will have been made.
 		 */
 		if ( get_option( 'fresh_site' ) && 'customize.php' === $pagenow ) {
-			add_action( 'after_setup_theme', array( $this, 'import_theme_mcp_content' ), 100 );
+			add_action( 'after_setup_theme', array( $this, 'import_theme_starter_content' ), 100 );
 		}
 
 		$this->start_previewing_theme();
@@ -910,25 +910,25 @@ final class WP_Customize_Manager {
 	}
 
 	/**
-	 * mcp content setting IDs.
+	 * Starter content setting IDs.
 	 *
 	 * @since 4.7.0
 	 * @access private
 	 * @var array
 	 */
-	protected $pending_mcp_content_settings_ids = array();
+	protected $pending_starter_content_settings_ids = array();
 
 	/**
-	 * Import theme mcp content into the customized state.
+	 * Import theme starter content into the customized state.
 	 *
 	 * @since 4.7.0
 	 * @access public
 	 *
-	 * @param array $mcp_content mcp content. Defaults to `get_theme_mcp_content()`.
+	 * @param array $starter_content Starter content. Defaults to `get_theme_starter_content()`.
 	 */
-	function import_theme_mcp_content( $mcp_content = array() ) {
-		if ( empty( $mcp_content ) ) {
-			$mcp_content = get_theme_mcp_content();
+	function import_theme_starter_content( $starter_content = array() ) {
+		if ( empty( $starter_content ) ) {
+			$starter_content = get_theme_starter_content();
 		}
 
 		$changeset_data = array();
@@ -936,12 +936,12 @@ final class WP_Customize_Manager {
 			$changeset_data = $this->get_changeset_post_data( $this->changeset_post_id() );
 		}
 
-		$sidebars_widgets = isset( $mcp_content['widgets'] ) && ! empty( $this->widgets ) ? $mcp_content['widgets'] : array();
-		$attachments = isset( $mcp_content['attachments'] ) && ! empty( $this->nav_menus ) ? $mcp_content['attachments'] : array();
-		$posts = isset( $mcp_content['posts'] ) && ! empty( $this->nav_menus ) ? $mcp_content['posts'] : array();
-		$options = isset( $mcp_content['options'] ) ? $mcp_content['options'] : array();
-		$nav_menus = isset( $mcp_content['nav_menus'] ) && ! empty( $this->nav_menus ) ? $mcp_content['nav_menus'] : array();
-		$theme_mods = isset( $mcp_content['theme_mods'] ) ? $mcp_content['theme_mods'] : array();
+		$sidebars_widgets = isset( $starter_content['widgets'] ) && ! empty( $this->widgets ) ? $starter_content['widgets'] : array();
+		$attachments = isset( $starter_content['attachments'] ) && ! empty( $this->nav_menus ) ? $starter_content['attachments'] : array();
+		$posts = isset( $starter_content['posts'] ) && ! empty( $this->nav_menus ) ? $starter_content['posts'] : array();
+		$options = isset( $starter_content['options'] ) ? $starter_content['options'] : array();
+		$nav_menus = isset( $starter_content['nav_menus'] ) && ! empty( $this->nav_menus ) ? $starter_content['nav_menus'] : array();
+		$theme_mods = isset( $starter_content['theme_mods'] ) ? $starter_content['theme_mods'] : array();
 
 		// Widgets.
 		$max_widget_numbers = array();
@@ -973,28 +973,28 @@ final class WP_Customize_Manager {
 				$setting_id = sprintf( 'widget_%s[%d]', $id_base, $max_widget_numbers[ $id_base ] );
 
 				$setting_value = $this->widgets->sanitize_widget_js_instance( $instance );
-				if ( empty( $changeset_data[ $setting_id ] ) || ! empty( $changeset_data[ $setting_id ]['mcp_content'] ) ) {
+				if ( empty( $changeset_data[ $setting_id ] ) || ! empty( $changeset_data[ $setting_id ]['starter_content'] ) ) {
 					$this->set_post_value( $setting_id, $setting_value );
-					$this->pending_mcp_content_settings_ids[] = $setting_id;
+					$this->pending_starter_content_settings_ids[] = $setting_id;
 				}
 				$sidebar_widget_ids[] = $widget_id;
 			}
 
 			$setting_id = sprintf( 'sidebars_widgets[%s]', $sidebar_id );
-			if ( empty( $changeset_data[ $setting_id ] ) || ! empty( $changeset_data[ $setting_id ]['mcp_content'] ) ) {
+			if ( empty( $changeset_data[ $setting_id ] ) || ! empty( $changeset_data[ $setting_id ]['starter_content'] ) ) {
 				$this->set_post_value( $setting_id, $sidebar_widget_ids );
-				$this->pending_mcp_content_settings_ids[] = $setting_id;
+				$this->pending_starter_content_settings_ids[] = $setting_id;
 			}
 		}
 
-		$mcp_content_auto_draft_post_ids = array();
+		$starter_content_auto_draft_post_ids = array();
 		if ( ! empty( $changeset_data['nav_menus_created_posts']['value'] ) ) {
-			$mcp_content_auto_draft_post_ids = array_merge( $mcp_content_auto_draft_post_ids, $changeset_data['nav_menus_created_posts']['value'] );
+			$starter_content_auto_draft_post_ids = array_merge( $starter_content_auto_draft_post_ids, $changeset_data['nav_menus_created_posts']['value'] );
 		}
 
 		// Make an index of all the posts needed and what their slugs are.
 		$needed_posts = array();
-		$attachments = $this->prepare_mcp_content_attachments( $attachments );
+		$attachments = $this->prepare_starter_content_attachments( $attachments );
 		foreach ( $attachments as $attachment ) {
 			$key = 'attachment:' . $attachment['post_name'];
 			$needed_posts[ $key ] = true;
@@ -1018,16 +1018,16 @@ final class WP_Customize_Manager {
 		);
 
 		/*
-		 * Obtain all post types referenced in mcp content to use in query.
+		 * Obtain all post types referenced in starter content to use in query.
 		 * This is needed because 'any' will not account for post types not yet registered.
 		 */
 		$post_types = array_filter( array_merge( array( 'attachment' ), wp_list_pluck( $posts, 'post_type' ) ) );
 
-		// Re-use auto-draft mcp content posts referenced in the current customized state.
-		$existing_mcp_content_posts = array();
-		if ( ! empty( $mcp_content_auto_draft_post_ids ) ) {
+		// Re-use auto-draft starter content posts referenced in the current customized state.
+		$existing_starter_content_posts = array();
+		if ( ! empty( $starter_content_auto_draft_post_ids ) ) {
 			$existing_posts_query = new WP_Query( array(
-				'post__in' => $mcp_content_auto_draft_post_ids,
+				'post__in' => $starter_content_auto_draft_post_ids,
 				'post_status' => 'auto-draft',
 				'post_type' => $post_types,
 				'posts_per_page' => -1,
@@ -1037,7 +1037,7 @@ final class WP_Customize_Manager {
 				if ( empty( $post_name ) ) {
 					$post_name = get_post_meta( $existing_post->ID, '_customize_draft_post_name', true );
 				}
-				$existing_mcp_content_posts[ $existing_post->post_type . ':' . $post_name ] = $existing_post;
+				$existing_starter_content_posts[ $existing_post->post_type . ':' . $post_name ] = $existing_post;
 			}
 		}
 
@@ -1051,8 +1051,8 @@ final class WP_Customize_Manager {
 			) );
 			foreach ( $existing_posts_query->posts as $existing_post ) {
 				$key = $existing_post->post_type . ':' . $existing_post->post_name;
-				if ( isset( $needed_posts[ $key ] ) && ! isset( $existing_mcp_content_posts[ $key ] ) ) {
-					$existing_mcp_content_posts[ $key ] = $existing_post;
+				if ( isset( $needed_posts[ $key ] ) && ! isset( $existing_starter_content_posts[ $key ] ) ) {
+					$existing_starter_content_posts[ $key ] = $existing_post;
 				}
 			}
 		}
@@ -1069,19 +1069,19 @@ final class WP_Customize_Manager {
 				$file_path = $attachment['file_path'];
 				$attachment_id = null;
 				$attached_file = null;
-				if ( isset( $existing_mcp_content_posts[ 'attachment:' . $attachment['post_name'] ] ) ) {
-					$attachment_post = $existing_mcp_content_posts[ 'attachment:' . $attachment['post_name'] ];
+				if ( isset( $existing_starter_content_posts[ 'attachment:' . $attachment['post_name'] ] ) ) {
+					$attachment_post = $existing_starter_content_posts[ 'attachment:' . $attachment['post_name'] ];
 					$attachment_id = $attachment_post->ID;
 					$attached_file = get_attached_file( $attachment_id );
 					if ( empty( $attached_file ) || ! file_exists( $attached_file ) ) {
 						$attachment_id = null;
 						$attached_file = null;
-					} elseif ( $this->get_stylesheet() !== get_post_meta( $attachment_post->ID, '_mcp_content_theme', true ) ) {
+					} elseif ( $this->get_stylesheet() !== get_post_meta( $attachment_post->ID, '_starter_content_theme', true ) ) {
 
 						// Re-generate attachment metadata since it was previously generated for a different theme.
 						$metadata = wp_generate_attachment_metadata( $attachment_post->ID, $attached_file );
 						wp_update_attachment_metadata( $attachment_id, $metadata );
-						update_post_meta( $attachment_id, '_mcp_content_theme', $this->get_stylesheet() );
+						update_post_meta( $attachment_id, '_starter_content_theme', $this->get_stylesheet() );
 					}
 				}
 
@@ -1115,13 +1115,13 @@ final class WP_Customize_Manager {
 					if ( is_wp_error( $attachment_id ) ) {
 						continue;
 					}
-					update_post_meta( $attachment_id, '_mcp_content_theme', $this->get_stylesheet() );
+					update_post_meta( $attachment_id, '_starter_content_theme', $this->get_stylesheet() );
 					update_post_meta( $attachment_id, '_customize_draft_post_name', $attachment['post_name'] );
 				}
 
 				$attachment_ids[ $symbol ] = $attachment_id;
 			}
-			$mcp_content_auto_draft_post_ids = array_merge( $mcp_content_auto_draft_post_ids, array_values( $attachment_ids ) );
+			$starter_content_auto_draft_post_ids = array_merge( $starter_content_auto_draft_post_ids, array_values( $attachment_ids ) );
 		}
 
 		// Posts & pages.
@@ -1140,8 +1140,8 @@ final class WP_Customize_Manager {
 				}
 
 				// Use existing auto-draft post if one already exists with the same type and name.
-				if ( isset( $existing_mcp_content_posts[ $post_type . ':' . $post_name ] ) ) {
-					$posts[ $post_symbol ]['ID'] = $existing_mcp_content_posts[ $post_type . ':' . $post_name ]->ID;
+				if ( isset( $existing_starter_content_posts[ $post_type . ':' . $post_name ] ) ) {
+					$posts[ $post_symbol ]['ID'] = $existing_starter_content_posts[ $post_type . ':' . $post_name ]->ID;
 					continue;
 				}
 
@@ -1162,14 +1162,14 @@ final class WP_Customize_Manager {
 				}
 			}
 
-			$mcp_content_auto_draft_post_ids = array_merge( $mcp_content_auto_draft_post_ids, wp_list_pluck( $posts, 'ID' ) );
+			$starter_content_auto_draft_post_ids = array_merge( $starter_content_auto_draft_post_ids, wp_list_pluck( $posts, 'ID' ) );
 		}
 
 		// The nav_menus_created_posts setting is why nav_menus component is dependency for adding posts.
-		if ( ! empty( $this->nav_menus ) && ! empty( $mcp_content_auto_draft_post_ids ) ) {
+		if ( ! empty( $this->nav_menus ) && ! empty( $starter_content_auto_draft_post_ids ) ) {
 			$setting_id = 'nav_menus_created_posts';
-			$this->set_post_value( $setting_id, array_unique( array_values( $mcp_content_auto_draft_post_ids ) ) );
-			$this->pending_mcp_content_settings_ids[] = $setting_id;
+			$this->set_post_value( $setting_id, array_unique( array_values( $starter_content_auto_draft_post_ids ) ) );
+			$this->pending_starter_content_settings_ids[] = $setting_id;
 		}
 
 		// Nav menus.
@@ -1181,10 +1181,10 @@ final class WP_Customize_Manager {
 			$nav_menu_setting_id = null;
 			$matches = array();
 
-			// Look for an existing placeholder menu with mcp content to re-use.
+			// Look for an existing placeholder menu with starter content to re-use.
 			foreach ( $changeset_data as $setting_id => $setting_params ) {
 				$can_reuse = (
-					! empty( $setting_params['mcp_content'] )
+					! empty( $setting_params['starter_content'] )
 					&&
 					! in_array( $setting_id, $reused_nav_menu_setting_ids, true )
 					&&
@@ -1209,7 +1209,7 @@ final class WP_Customize_Manager {
 			$this->set_post_value( $nav_menu_setting_id, array(
 				'name' => isset( $nav_menu['name'] ) ? $nav_menu['name'] : $nav_menu_location,
 			) );
-			$this->pending_mcp_content_settings_ids[] = $nav_menu_setting_id;
+			$this->pending_starter_content_settings_ids[] = $nav_menu_setting_id;
 
 			// @todo Add support for menu_item_parent.
 			$position = 0;
@@ -1234,16 +1234,16 @@ final class WP_Customize_Manager {
 					$nav_menu_item['object_id'] = 0;
 				}
 
-				if ( empty( $changeset_data[ $nav_menu_item_setting_id ] ) || ! empty( $changeset_data[ $nav_menu_item_setting_id ]['mcp_content'] ) ) {
+				if ( empty( $changeset_data[ $nav_menu_item_setting_id ] ) || ! empty( $changeset_data[ $nav_menu_item_setting_id ]['starter_content'] ) ) {
 					$this->set_post_value( $nav_menu_item_setting_id, $nav_menu_item );
-					$this->pending_mcp_content_settings_ids[] = $nav_menu_item_setting_id;
+					$this->pending_starter_content_settings_ids[] = $nav_menu_item_setting_id;
 				}
 			}
 
 			$setting_id = sprintf( 'nav_menu_locations[%s]', $nav_menu_location );
-			if ( empty( $changeset_data[ $setting_id ] ) || ! empty( $changeset_data[ $setting_id ]['mcp_content'] ) ) {
+			if ( empty( $changeset_data[ $setting_id ] ) || ! empty( $changeset_data[ $setting_id ]['starter_content'] ) ) {
 				$this->set_post_value( $setting_id, $nav_menu_term_id );
-				$this->pending_mcp_content_settings_ids[] = $setting_id;
+				$this->pending_starter_content_settings_ids[] = $setting_id;
 			}
 		}
 
@@ -1259,9 +1259,9 @@ final class WP_Customize_Manager {
 				}
 			}
 
-			if ( empty( $changeset_data[ $name ] ) || ! empty( $changeset_data[ $name ]['mcp_content'] ) ) {
+			if ( empty( $changeset_data[ $name ] ) || ! empty( $changeset_data[ $name ]['starter_content'] ) ) {
 				$this->set_post_value( $name, $value );
-				$this->pending_mcp_content_settings_ids[] = $name;
+				$this->pending_starter_content_settings_ids[] = $name;
 			}
 		}
 
@@ -1294,23 +1294,23 @@ final class WP_Customize_Manager {
 				$value = wp_get_attachment_url( $value );
 			}
 
-			if ( empty( $changeset_data[ $name ] ) || ! empty( $changeset_data[ $name ]['mcp_content'] ) ) {
+			if ( empty( $changeset_data[ $name ] ) || ! empty( $changeset_data[ $name ]['starter_content'] ) ) {
 				$this->set_post_value( $name, $value );
-				$this->pending_mcp_content_settings_ids[] = $name;
+				$this->pending_starter_content_settings_ids[] = $name;
 			}
 		}
 
-		if ( ! empty( $this->pending_mcp_content_settings_ids ) ) {
+		if ( ! empty( $this->pending_starter_content_settings_ids ) ) {
 			if ( did_action( 'customize_register' ) ) {
-				$this->_save_mcp_content_changeset();
+				$this->_save_starter_content_changeset();
 			} else {
-				add_action( 'customize_register', array( $this, '_save_mcp_content_changeset' ), 1000 );
+				add_action( 'customize_register', array( $this, '_save_starter_content_changeset' ), 1000 );
 			}
 		}
 	}
 
 	/**
-	 * Prepare mcp content attachments.
+	 * Prepare starter content attachments.
 	 *
 	 * Ensure that the attachments are valid and that they have slugs and file name/path.
 	 *
@@ -1320,7 +1320,7 @@ final class WP_Customize_Manager {
 	 * @param array $attachments Attachments.
 	 * @return array Prepared attachments.
 	 */
-	protected function prepare_mcp_content_attachments( $attachments ) {
+	protected function prepare_starter_content_attachments( $attachments ) {
 		$prepared_attachments = array();
 		if ( empty( $attachments ) ) {
 			return $prepared_attachments;
@@ -1373,23 +1373,23 @@ final class WP_Customize_Manager {
 	}
 
 	/**
-	 * Save mcp content changeset.
+	 * Save starter content changeset.
 	 *
 	 * @since 4.7.0
 	 * @access private
 	 */
-	public function _save_mcp_content_changeset() {
+	public function _save_starter_content_changeset() {
 
-		if ( empty( $this->pending_mcp_content_settings_ids ) ) {
+		if ( empty( $this->pending_starter_content_settings_ids ) ) {
 			return;
 		}
 
 		$this->save_changeset_post( array(
-			'data' => array_fill_keys( $this->pending_mcp_content_settings_ids, array( 'mcp_content' => true ) ),
-			'mcp_content' => true,
+			'data' => array_fill_keys( $this->pending_starter_content_settings_ids, array( 'starter_content' => true ) ),
+			'starter_content' => true,
 		) );
 
-		$this->pending_mcp_content_settings_ids = array();
+		$this->pending_starter_content_settings_ids = array();
 	}
 
 	/**
@@ -2235,7 +2235,7 @@ final class WP_Customize_Manager {
 	 *     @type string $title           Post title. Optional.
 	 *     @type string $date_gmt        Date in GMT. Optional.
 	 *     @type int    $user_id         ID for user who is saving the changeset. Optional, defaults to the current user ID.
-	 *     @type bool   $mcp_content Whether the data is mcp content. If false (default), then $mcp_content will be cleared for any $data being saved.
+	 *     @type bool   $starter_content Whether the data is starter content. If false (default), then $starter_content will be cleared for any $data being saved.
 	 * }
 	 *
 	 * @return array|WP_Error Returns array on success and WP_Error with array data on error.
@@ -2249,7 +2249,7 @@ final class WP_Customize_Manager {
 				'data' => array(),
 				'date_gmt' => null,
 				'user_id' => get_current_user_id(),
-				'mcp_content' => false,
+				'starter_content' => false,
 			),
 			$args
 		);
@@ -2436,9 +2436,9 @@ final class WP_Customize_Manager {
 					)
 				);
 
-				// Clear mcp_content flag in data if changeset is not explicitly being updated for mcp content.
-				if ( empty( $args['mcp_content'] ) ) {
-					unset( $data[ $changeset_setting_id ]['mcp_content'] );
+				// Clear starter_content flag in data if changeset is not explicitly being updated for starter content.
+				if ( empty( $args['starter_content'] ) ) {
+					unset( $data[ $changeset_setting_id ]['starter_content'] );
 				}
 			}
 		}

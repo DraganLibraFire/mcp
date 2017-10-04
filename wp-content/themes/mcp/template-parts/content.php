@@ -22,7 +22,7 @@
 		<div class="single-blog-title-wrapper">
 			<?php the_title( sprintf( '<h4 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h4>' ); ?>
 		</div>
-		<div class="article-desc">
+		<div class="article-desc" data-equal="article-desc">
 			<?php limit_text_lf('content', 150, true); ?>
 		</div>
 

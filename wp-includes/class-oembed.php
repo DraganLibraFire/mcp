@@ -91,8 +91,8 @@ class WP_oEmbed {
 			'#https?://(www\.|embed\.)?ted\.com/talks/.*#i'            => array( 'https://www.ted.com/services/v1/oembed.{format}',           true  ),
 			'#https?://(www\.)?(animoto|video214)\.com/play/.*#i'      => array( 'https://animoto.com/oembeds/create',                        true  ),
 			'#https?://(.+)\.tumblr\.com/post/.*#i'                    => array( 'https://www.tumblr.com/oembed/1.0',                         true  ),
-			'#https?://(www\.)?kickmcp\.com/projects/.*#i'         => array( 'https://www.kickmcp.com/services/oembed',               true  ),
-			'#https?://kck\.st/.*#i'                                   => array( 'https://www.kickmcp.com/services/oembed',               true  ),
+			'#https?://(www\.)?kickstarter\.com/projects/.*#i'         => array( 'https://www.kickstarter.com/services/oembed',               true  ),
+			'#https?://kck\.st/.*#i'                                   => array( 'https://www.kickstarter.com/services/oembed',               true  ),
 			'#https?://cloudup\.com/.*#i'                              => array( 'https://cloudup.com/oembed',                                true  ),
 			'#https?://(www\.)?reverbnation\.com/.*#i'                 => array( 'https://www.reverbnation.com/oembed',                       true  ),
 			'#https?://videopress\.com/v/.*#'                          => array( 'https://public-api.wordpress.com/oembed/?for=' . $host,     true  ),
@@ -169,8 +169,8 @@ class WP_oEmbed {
 		 * | YouTube      | youtube.com/playlist  |      Yes       | 4.0.0     |
 		 * | Vine         | vine.co               |      Yes       | 4.1.0     |
 		 * | Tumblr       | tumblr.com            |      Yes       | 4.2.0     |
-		 * | Kickmcp  | kickmcp.com       |      Yes       | 4.2.0     |
-		 * | Kickmcp  | kck.st                |      Yes       | 4.2.0     |
+		 * | Kickstarter  | kickstarter.com       |      Yes       | 4.2.0     |
+		 * | Kickstarter  | kck.st                |      Yes       | 4.2.0     |
 		 * | Cloudup      | cloudup.com           |      Yes       | 4.3.0     |
 		 * | ReverbNation | reverbnation.com      |      Yes       | 4.4.0     |
 		 * | VideoPress   | videopress.com        |      Yes       | 4.4.0     |
