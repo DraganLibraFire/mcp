@@ -40,7 +40,7 @@
 
 </div><!-- #page -->
 <?php echo get_theme_mod('google_analytics_code');?>
-<script src="https://wchat.freshchat.com/js/widget.js" ></script>
+<script src="https://wchat.freshchat.com/js/widget.js" async></script>
 <script>
 	window.fcSettings = {
 		token: "e0961ac4-c754-40c0-a7d2-87041b1a5717",
