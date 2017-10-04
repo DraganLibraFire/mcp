@@ -40,7 +40,6 @@
 
 </div><!-- #page -->
 <?php echo get_theme_mod('google_analytics_code');?>
-<?php wp_footer(); ?>
 <script>
 	window.fcSettings = {
 		token: "e0961ac4-c754-40c0-a7d2-87041b1a5717",
@@ -49,5 +48,7 @@
 	};
 </script>
 <script src="https://wchat.freshchat.com/js/widget.js" async></script>
+<?php wp_footer(); ?>
+
 </body>
 </html>
