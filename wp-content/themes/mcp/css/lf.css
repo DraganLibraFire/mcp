@@ -2963,7 +2963,8 @@ input[type="color"] {
         z-index: 2;
         height: 100%;
         position: absolute;
-        overflow: auto; }
+        overflow: auto;
+        left: 105%; }
       .hidden-filters ul li:last-of-type {
         border-bottom: 1px solid #007A91; }
       .hidden-filters ul li .expand-menu-link {
