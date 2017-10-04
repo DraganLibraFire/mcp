@@ -219,8 +219,27 @@ class Search_Filter_Taxonomy_Walker extends Walker_Category {
 				}
 				$link  = "";
 				
+				$related_colors = [];
 			
-				$link .= "<label><input type='".$this->type."' name='".$sf_name."[]' value='".$cat_slug."'".$checked.$disabled." data-sf-cr='".SF_TAX_PRE.$cat_id."' data-sf-hide-empty='".intval($hide_empty)."' /> "."<span class='radio-button-after'></span><span class='category-name'>$cat_name</span>";
+				// check if the repeater field has rows of data
+				if( have_rows('related_colors', "product-profile_" . $cat_id) ):
+				 	// loop through the rows of data
+				    while ( have_rows('related_colors', "product-profile_" . $cat_id) ) : the_row();
+				
+				        // display a sub field value
+						$related_colors[] = [
+							'color' 		=> get_sub_field('related_color'),
+							'has_smiley' 	=> get_sub_field('has_smiley') ? 1 : 0
+						];
+				
+				    endwhile;
+				
+				else :
+				
+				    // no rows found
+				
+				endif;
+				$link .= "<label><input data-related-colors='".json_encode($related_colors)."' type='".$this->type."' name='".$sf_name."[]' value='".$cat_slug."'".$checked.$disabled." data-sf-cr='".SF_TAX_PRE.$cat_id."' data-sf-hide-empty='".intval($hide_empty)."' /> "."<span class='radio-button-after'></span><span class='category-name'>$cat_name</span>";
 			
 
 				

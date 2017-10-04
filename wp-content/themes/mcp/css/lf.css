@@ -2927,7 +2927,8 @@ input[type="color"] {
       overflow: hidden;
       position: relative;
       border-bottom: 1px solid #007A91;
-      height: 100%; }
+      height: 100%;
+      background: #f2f2f2; }
     .hidden-filters .heading-lf, .hidden-filters label {
       position: relative;
       font-size: 18px;
@@ -2949,8 +2950,7 @@ input[type="color"] {
     .hidden-filters ul li {
       width: 100%;
       padding: 6px 10px !important;
-      border-top: 1px solid #007A91;
-      border-right: 1px solid #007A91; }
+      border: none !important; }
       .hidden-filters ul li .back-menu-link-wrapper {
         margin-bottom: -7px !important; }
       .hidden-filters ul li .children {
@@ -2958,7 +2958,7 @@ input[type="color"] {
         left: 105%; }
       .hidden-filters ul li ul {
         top: 0;
-        background: white;
+        background: #f2f2f2;
         width: 100%;
         z-index: 2;
         height: 100%;
@@ -2974,7 +2974,7 @@ input[type="color"] {
         right: -9px;
         width: 40px;
         height: 45px;
-        border: 1px solid #007A91;
+        border: none;
         padding: 13px;
         color: #007A91;
         border-bottom: 0;
@@ -2982,6 +2982,35 @@ input[type="color"] {
         cursor: pointer;
         bottom: 0;
         border-right: 0; }
+    .hidden-filters .searchandfilter .noUi-horizontal .noUi-handle {
+      width: 15px;
+      height: 15px;
+      top: -4px; }
+      .hidden-filters .searchandfilter .noUi-horizontal .noUi-handle:before, .hidden-filters .searchandfilter .noUi-horizontal .noUi-handle:after {
+        content: none; }
+    .hidden-filters .searchandfilter li .meta-range {
+      font-size: 17px;
+      max-width: 80%;
+      margin: auto; }
+      .hidden-filters .searchandfilter li .meta-range .number-crtca-slider {
+        padding-top: 0; }
+      .hidden-filters .searchandfilter li .meta-range input[type=number] {
+        background-color: transparent;
+        padding: 0;
+        height: 20px;
+        font-size: 17px; }
+      .hidden-filters .searchandfilter li .meta-range > span {
+        font-size: 17px; }
+
+  .filters-main-wrapper {
+    padding: 0 !important; }
+    .filters-main-wrapper ul {
+      background: #f2f2f2; }
+    .filters-main-wrapper h4 {
+      border-bottom: 0; }
+
+  .sf-field-sort_order {
+    display: none !important; }
 
   .filters-resault-content-wrapper .search-filter-results {
     padding-left: 0; } }
@@ -3108,6 +3137,9 @@ input[type="color"] {
 @media all and (max-width: 640px) {
   .hidden-filters .heading-lf, .hidden-filters label {
     font-size: 15px; }
+
+  .show-filters-button {
+    margin-top: 0 !important; }
 
   footer.site-footer .main-widgets-wrapper .footer-widgets-wrapper > div .center-block {
     width: 100%;
