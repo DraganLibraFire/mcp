@@ -113,7 +113,7 @@ class LF_Import
             $product_object = get_page_by_title($product['name'], OBJECT, 'product');
 
             /* No products with the same name */
-            if ( is_null($product_object) || ( ($key != get_field('xls_index', $product_object->ID)) && !is_null($product_object)) ) {
+            if ( is_null($product_object) || ( ( ($key + 1) != get_field('xls_index', $product_object->ID)) && !is_null($product_object)) ) {
                 $new++;
 
                 if( is_array( $product['images'] ) && trim($fields['images']) != '' ){
