@@ -59,8 +59,8 @@ class Search_Filter_Form_Data
 	
 	public function init($postid = '')
 	{
+		error_reporting(0);
 		$form_id = $postid;
-		
 		$this->form_data['settings'] = get_post_meta( $form_id , '_search-filter-settings' , true );
 		$this->form_data['fields'] = get_post_meta( $form_id , '_search-filter-fields' , true );
 		$this->form_data['fields_assoc'] = array();
@@ -72,7 +72,7 @@ class Search_Filter_Form_Data
 			$this->form_data['idref'] = $postid;
 			
 			//$fieldswkeys = array();
-			
+
 			foreach ($this->form_data['fields'] as $field)
 			{
 				if($field['type']=="post_meta")
@@ -111,7 +111,7 @@ class Search_Filter_Form_Data
 				{
 					$this->form_data['fields_assoc'][$field['type']] = $field; //make fields accessible by key
 				}
-			}			
+			}
 		}
 	}
 	

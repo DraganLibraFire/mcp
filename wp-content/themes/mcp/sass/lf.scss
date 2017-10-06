@@ -226,6 +226,9 @@ a {
     color: $main_green;
   }
 }
+.slider-product-grid{
+  margin-bottom: 15px;
+}
 /*--------------- Buttons general styling ---------------*/
 body {
   .green-fancy-button {
@@ -1436,7 +1439,7 @@ body > .searchandfilter{
   }
   .searchandfilter {
     li {
-      .open-info-box{
+      [class*='open-info-box']{
         display: inline-block;
         margin-left: 10px;
         color: $main_green;
@@ -1999,7 +2002,7 @@ body > .searchandfilter{
       }
       border: 2px solid $main_green;
       display: table;
-      height: 332px;
+      height: 290px;
       text-align: center;
       width: 100%;
       overflow: hidden;

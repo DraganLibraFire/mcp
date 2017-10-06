@@ -4,6 +4,9 @@ jQuery(function($){
     var open_description_popup = $('<span class="open-info-box"><i class="fa fa-info-circle" aria-hidden="true"></i></span>');
     $(".sf-field-taxonomy-product-color .heading-lf").append(open_description_popup);
 
+    var open_description_popup_profile = $('<span class="open-info-box-profile"><i class="fa fa-info-circle" aria-hidden="true"></i></span>');
+    $(".sf-field-taxonomy-product-profile .heading-lf").append(open_description_popup_profile);
+
     var slim_scroll_height = 260;
 
     var ajax_in_progress = false;
@@ -46,6 +49,7 @@ jQuery(function($){
         $(this).parents('.tabs-main-wrapper').find('.tabs-content-wrapper-inner > li').eq( $(this).index()).find('.slick-initialized').slick('refresh');
 
         $(document).trigger('map_tab_changed');
+        $(window).trigger('resize');
     })
 
 
@@ -554,6 +558,12 @@ jQuery(function($){
             var element = $( "#" + $(".hidden-filters .sf-field-taxonomy-product-profile input:checked").val() );
 
             $.featherlight( $(element).html() );
+
+        })
+
+        $(".open-info-box-profile").off('click').on('click', function(){
+
+            $.featherlight( $( "#general-profile-text" ).html() );
 
         })
 

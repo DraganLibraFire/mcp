@@ -170,6 +170,9 @@ a {
   a:hover {
     color: #007A91; }
 
+.slider-product-grid {
+  margin-bottom: 15px; }
+
 /*--------------- Buttons general styling ---------------*/
 body .green-fancy-button {
   background: url("../images/arrow-right-fency-button.png") no-repeat 90% center;
@@ -1146,8 +1149,8 @@ body > .searchandfilter {
   .filters-main-wrapper .searchandfilter li,
   body > .searchandfilter .searchandfilter li {
     padding: 10px 0; }
-    .filters-main-wrapper .searchandfilter li .open-info-box,
-    body > .searchandfilter .searchandfilter li .open-info-box {
+    .filters-main-wrapper .searchandfilter li [class*='open-info-box'],
+    body > .searchandfilter .searchandfilter li [class*='open-info-box'] {
       display: inline-block;
       margin-left: 10px;
       color: #007A91;
@@ -1617,7 +1620,7 @@ body > .searchandfilter {
   .nav-tabs li .list-tab-table {
     border: 2px solid #007A91;
     display: table;
-    height: 332px;
+    height: 290px;
     text-align: center;
     width: 100%;
     overflow: hidden; }
@@ -2974,14 +2977,18 @@ body:not(.page-template-tpl-filter) .featherlight-content {
     .hidden-filters .sf-field-taxonomy-product-color ul {
       padding-right: 0px !important; }
       .hidden-filters .sf-field-taxonomy-product-color ul li {
-        height: 40px;
-        width: 40px;
-        border: none !important; }
+        width: 23%;
+        margin-bottom: 25px;
+        border: none !important;
+        padding: 0 !important;
+        margin-right: 0; }
         .hidden-filters .sf-field-taxonomy-product-color ul li:first-child {
           width: 100%;
           display: block !important; }
-        .hidden-filters .sf-field-taxonomy-product-color ul li:not(.sf-item-0) label {
-          border: 1px solid #1a849a; }
+        .hidden-filters .sf-field-taxonomy-product-color ul li .radio-button-after {
+          border: none !important; }
+        .hidden-filters .sf-field-taxonomy-product-color ul li label {
+          margin: auto; }
     .hidden-filters ul li {
       width: 100%;
       padding: 6px 10px !important;

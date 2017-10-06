@@ -55,12 +55,12 @@ $POST__ID = is_tax() ? $taxonomy . "_" . $term_id : $post->ID;
 
 							echo "<li class='$active'>";
 							?>
-							<ul class="products-profile-slider">
+							<ul class="nav pull-left">
 								<?php
 
 								$products = get_sub_field('collection_products', $POST__ID);
 								foreach ( $products as $product ) {
-									lf_get_template_part( 'template-parts/content-slider-product', [ 'product' => $product ] );
+									lf_get_template_part( 'template-parts/content-slider-product', [ 'product' => $product, 'classes' => 'col-md-3 col-xs-6 ' ] );
 								}
 
 								?>

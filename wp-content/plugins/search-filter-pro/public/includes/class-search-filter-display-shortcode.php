@@ -546,7 +546,7 @@ class Search_Filter_Display_Shortcode {
 				{
 					$display_results_as = $sf_form_data->settings('display_results_as');
 				}
-				
+
 				
 				if($display_results_as=="shortcode")
 				{

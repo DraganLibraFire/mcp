@@ -524,13 +524,16 @@
             width: 100%;
             display: block !important;
           }
-          height: 40px;
-          width: 40px;
+          width: 23%;
+          margin-bottom: 25px;
           border: none !important;
-          &:not(.sf-item-0){
-            label{
-              border: 1px solid #1a849a;
-            }
+          padding: 0 !important;
+          margin-right: 0;
+          .radio-button-after{
+            border: none !important;
+          }
+          label{
+            margin: auto;
           }
         }
       }
