@@ -89,7 +89,9 @@ class LF_Import
         $array = $csvAsArray;
         $this->HEADER = array_shift($array);
 
-        foreach ($array as $key => $fields) {
+        foreach ($array as $key_zero => $fields) {
+            $key = $key_zero + 1;
+
             $fields = $this->array_combine2($this->HEADER, $fields);
 
             /* Product data */
@@ -113,7 +115,7 @@ class LF_Import
             $product_object = get_page_by_title($product['name'], OBJECT, 'product');
 
             /* No products with the same name */
-            if ( is_null($product_object) || ( ( ($key + 1) != get_field('xls_index', $product_object->ID)) && !is_null($product_object)) ) {
+            if ( is_null($product_object) || ( ( $key != get_field('xls_index', $product_object->ID)) && !is_null($product_object)) ) {
                 $new++;
 
                 if( is_array( $product['images'] ) && trim($fields['images']) != '' ){
@@ -139,12 +141,12 @@ class LF_Import
                 );
 
                 if( $product_id == 0 ){
-                    echo "<pre>taj"; print_r( array(
-                        'post_type' => 'product',
-                        'post_title' => (string)$product['name'],
-                        'post_content' => $product['description'],
-                        'post_status' => trim($fields['images']) != '' ? 'publish' : 'draft',
-                    ) ); echo "</pre>" ; exit();
+//                    echo "<pre>taj"; print_r( array(
+//                        'post_type' => 'product',
+//                        'post_title' => (string)$product['name'],
+//                        'post_content' => $product['description'],
+//                        'post_status' => trim($fields['images']) != '' ? 'publish' : 'draft',
+//                    ) ); echo "</pre>" ; exit();
                 }
 
 
@@ -231,9 +233,7 @@ class LF_Import
                 );
 
                 $profiles_total["{$taxonomy}_{$profiles['term_id']}"][] = $repeater_value;
-                
-/* TODO   */
-//                update_field('field_599c61630aee2', $repeater_value, "{$taxonomy}_{$profiles['term_id']}");
+
             }
 
         }
