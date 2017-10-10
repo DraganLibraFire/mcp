@@ -588,9 +588,8 @@ if( !is_user_logged_in() ){
 //	    while( $prod_q->have_posts() ) :
 //	        $prod_q->the_post();
 //
-//			$current_index = get_field('xls_index', get_the_ID());
 //
-//			update_field('xls_index', $current_index -1, get_the_ID());
+//			update_field('xls_index', '0', get_the_ID());
 //
 //	    endwhile;
 //
