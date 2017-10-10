@@ -405,29 +405,29 @@ class LF_Import
                 <form enctype="multipart/form-data" action="<?php echo admin_url('admin-post.php'); ?>" method="post">
                     <table class="wp-list-table widefat fixed">
                         <thead>
-                        <th>CSV File</th>
-                        <th>Type (product or taxonomy)</th>
-                        <th>Action</th>
+                            <th>CSV File</th>
+                            <th>Type (product or taxonomy)</th>
+                            <th>Action</th>
                         </thead>
                         <tbody>
 
-                        <input type="hidden" name="action" value="update_products">
-                        <tr>
-                            <td>
-                                <input accept=".csv" type="file" name="csv">
-                            </td>
-                            <td>
-                                <select name="type" id="">
-                                    <option value="product">Products</option>
-                                    <?php foreach (get_object_taxonomies( 'product', 'names' ) as $get_object_taxonomy) {
-                                        echo "<option value='".$get_object_taxonomy."'>(Categorie) {$get_object_taxonomy}</option>";
-                                    }?>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="submit" name="import_LF_CSV" value="IMPORT">
-                            </td>
-                        </tr>
+                                <input type="hidden" name="action" value="update_products">
+                                <tr>
+                                    <td>
+                                        <input accept=".csv" type="file" name="csv">
+                                    </td>
+                                    <td>
+                                        <select name="type" id="">
+                                            <option value="product">Products</option>
+                                            <?php foreach (get_object_taxonomies( 'product', 'names' ) as $get_object_taxonomy) {
+                                                echo "<option value='".$get_object_taxonomy."'>(Categorie) {$get_object_taxonomy}</option>";
+                                            }?>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="submit" name="import_LF_CSV" value="IMPORT">
+                                    </td>
+                                </tr>
                         </tbody>
                     </table>
                 </form>
@@ -455,33 +455,33 @@ class LF_Import
                         </tbody>
                     </table>
                 </form>
-                <!--                <form enctype="multipart/form-data" action="--><?php //echo admin_url('admin-post.php'); ?><!--" method="post">-->
-                <!--                    <table class="wp-list-table widefat fixed">-->
-                <!--                        <thead>-->
-                <!--                        <th>CSV File</th>-->
-                <!--                        <th>Type (product or taxonomy)</th>-->
-                <!--                        <th>Action</th>-->
-                <!--                        </thead>-->
-                <!--                        <tbody>-->
-                <!---->
-                <!--                        <input type="hidden" name="action" value="update_products">-->
-                <!--                        <input type="hidden" name="translation" value="update_products_translation">-->
-                <!--                        <tr>-->
-                <!--                            <td>-->
-                <!--                                <input accept=".csv" type="file" name="csv">-->
-                <!--                            </td>-->
-                <!--                            <td>-->
-                <!--                                <select name="type" id="">-->
-                <!---->
-                <!--                                </select>-->
-                <!--                            </td>-->
-                <!--                            <td>-->
-                <!--                                <input type="submit" name="import_LF_CSV" value="IMPORT">-->
-                <!--                            </td>-->
-                <!--                        </tr>-->
-                <!--                        </tbody>-->
-                <!--                    </table>-->
-                <!--                </form>-->
+<!--                <form enctype="multipart/form-data" action="--><?php //echo admin_url('admin-post.php'); ?><!--" method="post">-->
+<!--                    <table class="wp-list-table widefat fixed">-->
+<!--                        <thead>-->
+<!--                        <th>CSV File</th>-->
+<!--                        <th>Type (product or taxonomy)</th>-->
+<!--                        <th>Action</th>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!---->
+<!--                        <input type="hidden" name="action" value="update_products">-->
+<!--                        <input type="hidden" name="translation" value="update_products_translation">-->
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                <input accept=".csv" type="file" name="csv">-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <select name="type" id="">-->
+<!---->
+<!--                                </select>-->
+<!--                            </td>-->
+<!--                            <td>-->
+<!--                                <input type="submit" name="import_LF_CSV" value="IMPORT">-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </form>-->
             </div>
             <?php
         }
