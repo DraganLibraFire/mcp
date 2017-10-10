@@ -156,6 +156,7 @@
 								<option value="slug"<?php $this->set_selected($values['order_by'], "slug"); ?>><?php _e("Slug", $this->plugin_slug); ?></option>
 								<option value="count"<?php $this->set_selected($values['order_by'], "count"); ?>><?php _e("Count", $this->plugin_slug); ?></option>
 								<option value="term_group"<?php $this->set_selected($values['order_by'], "term_group"); ?>><?php _e("Term Group", $this->plugin_slug); ?></option>
+								<option value="term_order"<?php $this->set_selected($values['order_by'], "term_order"); ?>><?php _e("Term Order", $this->plugin_slug); ?></option>
 							</select>
 							
 							<select name="{0}[{1}][order_dir]" id="{0}[{1}][order_dir]">
