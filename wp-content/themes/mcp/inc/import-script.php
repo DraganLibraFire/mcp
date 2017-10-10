@@ -112,10 +112,24 @@ class LF_Import
 
             if( $product['name'] == '' ) continue;
 
-            $product_object = get_page_by_title($product['name'], OBJECT, 'product');
+            $args = array(
+                'post_type'     => 'product',
+                'fields'        => 'ids',
+                'name'          => sanitize_title($product['name']),
+                'meta_query'    => array(
+                    array(
+                        'key'       => 'xls_index',
+                        'value'     => $fake_index,
+                        'compare'   => '!='
+                    )
+                )
+            );
+
+            $product_object = get_posts($args)[0];
+
 
             /* No products with the same name */
-            if ( is_null($product_object) || ( ( $fake_index != get_field('xls_index', $product_object->ID)) && !is_null($product_object)) ) {
+            if ( is_null($product_object) || ( ( $fake_index != get_field('xls_index', $product_object)) && !is_null($product_object) )  ) {
                 $new++;
 
                 if( is_array( $product['images'] ) && trim($fields['images']) != '' ){
@@ -205,6 +219,7 @@ class LF_Import
             $args = array(
                 'post_type' => 'product',
                 'fields'    => 'ids',
+                'posts_per_page'	=> -1,
                 'meta_query' => array(
                     array(
                         'key' => 'xls_index',

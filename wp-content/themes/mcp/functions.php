@@ -575,23 +575,3 @@ if( !is_user_logged_in() ){
 
 	});
 }
-//add_action('init', function(){
-//	$args = array(
-//		'post_type'			=> 'product',
-//		'posts_per_page'	=> -1
-//	);
-//
-//	$prod_q = new WP_Query($args);
-//
-//	if ( $prod_q->have_posts() ) :
-//
-//	    while( $prod_q->have_posts() ) :
-//	        $prod_q->the_post();
-//
-//
-//			update_field('xls_index', '0', get_the_ID());
-//
-//	    endwhile;
-//
-//	endif;
-//});
