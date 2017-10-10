@@ -575,3 +575,24 @@ if( !is_user_logged_in() ){
 
 	});
 }
+//add_action('init', function(){
+//	$args = array(
+//		'post_type'			=> 'product',
+//		'posts_per_page'	=> -1
+//	);
+//
+//	$prod_q = new WP_Query($args);
+//
+//	if ( $prod_q->have_posts() ) :
+//
+//	    while( $prod_q->have_posts() ) :
+//	        $prod_q->the_post();
+//
+//			$current_index = get_field('xls_index', get_the_ID());
+//
+//			update_field('xls_index', $current_index -1, get_the_ID());
+//
+//	    endwhile;
+//
+//	endif;
+//});

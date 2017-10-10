@@ -89,8 +89,8 @@ class LF_Import
         $array = $csvAsArray;
         $this->HEADER = array_shift($array);
 
+        $fake_index = 2;
         foreach ($array as $key_zero => $fields) {
-            $key = $key_zero + 1;
 
             $fields = $this->array_combine2($this->HEADER, $fields);
 
@@ -115,7 +115,7 @@ class LF_Import
             $product_object = get_page_by_title($product['name'], OBJECT, 'product');
 
             /* No products with the same name */
-            if ( is_null($product_object) || ( ( $key != get_field('xls_index', $product_object->ID)) && !is_null($product_object)) ) {
+            if ( is_null($product_object) || ( ( $fake_index != get_field('xls_index', $product_object->ID)) && !is_null($product_object)) ) {
                 $new++;
 
                 if( is_array( $product['images'] ) && trim($fields['images']) != '' ){
@@ -162,9 +162,11 @@ class LF_Import
                 update_field( 'product_link', $product['url'], $product_id);
                 update_field( 'featured_image', $product['attachments'][0], $product_id);
                 update_field( 'images', $product['attachments'], $product_id);
-                update_field( 'xls_index', $key, $product_id);
+                update_field( 'xls_index', $fake_index, $product_id);
 
             }
+
+            $fake_index++;
 
         }
 
