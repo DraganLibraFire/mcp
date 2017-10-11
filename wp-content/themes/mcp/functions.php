@@ -463,7 +463,7 @@ function get_wishlist_button( $product_id ){
 		}
 	} else{
 		return '<div class="add-to-wishlist-wrapper logged-out">
-					' . sprintf(__("U moet <a href='%s'>ingelogd zijn</a> om dit product toe te voegen aan uw wenslijst", "mcp"), wp_login_url( get_permalink() ) ) . '
+					' . sprintf(__("U moet ingelogd zijn om dit product toe te voegen aan uw wenslijst", "mcp"), wp_login_url( get_permalink() ) ) . '
 				</div>';
 	}
 }
