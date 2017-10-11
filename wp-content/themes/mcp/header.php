@@ -45,8 +45,9 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mcp' ); ?></a>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-header-inner clearfix">
-			<div class="login-language-switcher-wrapper hidden clearfix">
-				<div class="login-language-switcher-wrapper-inner pull-right">
+			<div class="login-language-switcher-wrapper  clearfix">
+				<br>
+				<div class="login-language-switcher-wrapper-inner hidden pull-right">
 					<?php wp_nav_menu( array( 'theme_location' => 'top-menu', 'menu_class' => 'clearfix' ) ); ?>
 					<?php languages_list_dropdown(); ?>
 				</div>
