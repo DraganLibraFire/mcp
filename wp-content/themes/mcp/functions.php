@@ -547,31 +547,31 @@ add_action('template_redirect', function(){
 		header("Location: ". get_term_link(516, 'product-profile'));
 	}
 });
-if( !is_user_logged_in() ){
-
-	add_action('template_redirect', function(){
-
-		if(isset($_GET['view'])){
-			if(
-					!strpos($_SERVER['REQUEST_URI'], 'myshop') &&
-					!strpos($_SERVER['REQUEST_URI'], 'product') &&
-					!strpos($_SERVER['REQUEST_URI'], 'myinspo')
-
-			){
-				header("Location: ". get_permalink(1999));
-			}
-
-		} else{
-
-			/*if(!strpos($_SERVER['REQUEST_URI'], 'product')){*/
-				if(!strpos($_SERVER['REQUEST_URI'], 'under-construction')){
-					header("Location: ". get_permalink(1999));
-				}
-			/*}*/
-
-
-
-		}
-
-	});
-}
+//if( !is_user_logged_in() ){
+//
+//	add_action('template_redirect', function(){
+//
+//		if(isset($_GET['view'])){
+//			if(
+//					!strpos($_SERVER['REQUEST_URI'], 'myshop') &&
+//					!strpos($_SERVER['REQUEST_URI'], 'product') &&
+//					!strpos($_SERVER['REQUEST_URI'], 'myinspo')
+//
+//			){
+//				header("Location: ". get_permalink(1999));
+//			}
+//
+//		} else{
+//
+//			/*if(!strpos($_SERVER['REQUEST_URI'], 'product')){*/
+//				if(!strpos($_SERVER['REQUEST_URI'], 'under-construction')){
+//					header("Location: ". get_permalink(1999));
+//				}
+//			/*}*/
+//
+//
+//
+//		}
+//
+//	});
+//}
