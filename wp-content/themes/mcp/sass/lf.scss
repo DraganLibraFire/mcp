@@ -1607,6 +1607,15 @@ body > .searchandfilter{
     }
   }
 }
+.sf-field-taxonomy-product-profile{
+  ul{
+    li{
+      &:first-of-type{
+        display: none !important;
+      }
+    }
+  }
+}
 .no-products{
   padding-left: 30px;
 }
