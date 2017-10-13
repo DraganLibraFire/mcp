@@ -1,0 +1,3 @@
+смаY<?php exit; ?>a:1:{s:7:"content";s:596:"<h3 style="text-align: center;">DISCOVER YOUR PERSONAL COLOR IDENTITY</h3>
+<h4 style="text-align: center;">DOWNLOAD THE APP</h4>
+<a href="https://itunes.apple.com/us/app/my-color-passport/id1041368387?mt=8"><img class="size-full wp-image-63 aligncenter" src="http://localhost/mcp/wp-content/uploads/2017/08/app-store.png" alt="" width="223" height="70" /></a> <a href="https://play.google.com/store/apps/details?id=cp.consumer&amp;hl=en"><img class="size-medium wp-image-64 aligncenter" src="http://localhost/mcp/wp-content/uploads/2017/08/google-play.png" alt="" width="212" height="69" /></a>";}

@@ -1,0 +1,35 @@
+���Y<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":23:{s:2:"ID";s:4:"3416";s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2017-10-03 16:39:36";s:13:"post_date_gmt";s:19:"2017-10-03 14:39:36";s:12:"post_content";s:6176:"<em>Ga voor een knuffelachtige herfst en winter met deze heerlijk comfortabele trend: kleurrijke jassen in zalig zachte stoffen. Onze kleurexperts hebben een aantal outfitcombinaties voor je klaargezet om je alvast wat inspiratie mee te geven!</em>
+
+<img class="alignnone wp-image-3960" src="http://localhost/mcp/wp-content/uploads/2017/10/jas1.png" alt="jas faux fur" width="652" height="652" />
+
+Onze kleurspecialisten hebben deze outfits speciaal voor types #MyCP TOKYO, PARIS, BERLIN, LISBON en MIAMI uitgekozen!
+<ol>
+ 	<li><a href="https://ad.zanox.com/ppc/?43627934C92161197&amp;ulp=[[/mango/mango-faux-fur-coat/prd/8437091&amp;clr=red&amp;SearchQuery=faux+fur&amp;pgesize=36&amp;pge=0&amp;totalstyles=436&amp;gridsize=3&amp;gridrow=2&amp;gridcolumn=1]]">Mango, Faux fur jas, € 162,14</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43627934C92161197&amp;ulp=[[/river-island/river-island-molly-high-rise-skinny-jegging/prd/6556742&amp;clr=black&amp;cid=3630&amp;pgesize=36&amp;pge=0&amp;totalstyles=1006&amp;gridsize=3&amp;gridrow=9&amp;gridcolumn=1]]">River Island, High waist jegging, € 54,05</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43627934C92161197&amp;ulp=[[/stradivarius/stradivarius-floral-embroidered-buckle-bag/prd/8804832&amp;clr=multi&amp;SearchQuery=&amp;cid=27109&amp;pgesize=36&amp;pge=1&amp;totalstyles=75&amp;gridsize=3&amp;gridrow=10&amp;gridcolumn=1]]">Stradivarius, Geborduurde tas, € 27,01</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43627934C92161197&amp;ulp=[[/new-look/new-look-teal-velvet-ankle-boot/prd/8827604&amp;clr=blue&amp;SearchQuery=&amp;cid=6992&amp;pgesize=36&amp;pge=4&amp;totalstyles=594&amp;gridsize=3&amp;gridrow=7&amp;gridcolumn=2]]">New Look, Fluwelen enkellaarsjes, € 40,53</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43630750C75910071&amp;ULP=[[http%3A%2F%2Fwww.laredoute.be%2Fnl%2Fppdp%2Fprod-350092256.aspx]]">Esprit, Blouse met lange mouwen, € 39,99</a></li>
+</ol>
+<img class="alignnone wp-image-3961" src="http://localhost/mcp/wp-content/uploads/2017/10/jas-2.png" alt="faux fur jas outfit" width="640" height="640" />
+
+Deze outfit past perfect bij types #MyCP LONDON, NEW YORK, MIAMI, BERLIN en PARIS.
+<ol>
+ 	<li><a href="https://ad.zanox.com/ppc/?43604760C25074585&amp;ulp=[[/claudia-strater-jas-van-imitatiebont-met-drukknoopsluiting-2207159136-220715913600000?query=fh_view_size%3D48%26chl%3D1%26vt%3Dvariation_a%26fh_location%3D%252f%252fcatalog01%252fnl_NL%252f%2524s%253dbontjas%26country%3DBE]]">Claudia Sträter, Jas van imitatiebond, € 269,95</a></li>
+ 	<li><a href="https://www.hunkemoller.be/be_nl/55-voorgevormde-maximizer-beugel-bh-catalina-blauw-117021.html">Hunkemöller, Maximizer BH Catalina, € 32,99</a></li>
+ 	<li><a href="https://www.hunkemoller.be/be_nl/55-brazilian-catalina-blauw-117029.html">Hunkemöller, Brazilian Catalina, € 17,99</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43604760C25074585&amp;ulp=[[/ted-baker-emelay-a-lijn-jurk-met-plisse-6511041723-651104172300000?query=fh_view_size%3D48%26fh_start_index%3D48%26chl%3D1%26vt%3Dvariation_a%26fh_location%3D%252f%252fcatalog01%252fnl_NL%252fcategories%253c%257bcatalog01_60%257d%252fcategories%253c%257bcatalog01_60_880%257d%252fcategories%253c%257bcatalog01_60_880_4000%257d%252fbasecolour%253e%257bpaars%253broze%257d%26fh_sort%3D-voorraad_indication%252c-%2524ranking_startseason_fashion_be_test%26country%3DBE]]">Ted Baker, A-lijn jurk, € 195</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43630750C75910071&amp;ULP=[[http%3A%2F%2Fwww.laredoute.be%2Fnl%2Fppdp%2Fprod-350074020.aspx]]">La Redoute, Pumps met platform, €54,99</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43604760C25074585&amp;ulp=[[/swarovski-glam-rock-telefoonhoes-voor-iphone-7-3893010905-389301090500000?ref=%2Fdamesmode%2Faccessoires%2Ftablet-telefoonhoesjes%3Fpage%3D2]]">Swarovski, Glam Rock telefoonhoes, €79</a></li>
+ 	<li><a href="https://www.zalando.be/kiomi-horloge-silver-coloured-k4451ma0k-d11.html">KIOMI, Zilveren horloge, € 39,95</a></li>
+</ol>
+<img class="alignnone wp-image-3963" src="http://localhost/mcp/wp-content/uploads/2017/10/1.-1.png" alt="outfitcombo faux fur jas" width="648" height="648" />
+
+Ben jij type #MyCP SYDNEY of TOKYO? Dan is deze outfit perfect voor jou!
+<ol>
+ 	<li><a href="https://www.zalando.be/topshop-petite-claire-lux-winterjas-nude-tq021g000-j11.html">Topshop, Nude winterjas, € 109,95</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43604760C25074585&amp;ulp=[[/maje-loutan-blouse-met-ruches-2312014178-231201448700000?query=fh_view_size%3D48%26fh_start_index%3D96%26chl%3D1%26vt%3Dvariation_a%26fh_location%3D%252f%252fcatalog01%252fnl_NL%252fcategories%253c%257bcatalog01_60%257d%252fcategories%253c%257bcatalog01_60_880%257d%252fcategories%253c%257bcatalog01_60_880_4040%257d%252fbasecolour%253e%257bgroen%253blichtblauw%257d%26fh_sort%3D-voorraad_indication%252c-%2524ranking_startseason_fashion_be_test%26country%3DBE]]">Maje, Blouse met ruches, € 175</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43627934C92161197&amp;ulp=[[/lazy-oaf/lazy-oaf-blue-heart-shaped-embroidered-cat-cross-body-bag/prd/8287359&amp;clr=blue&amp;SearchQuery=&amp;cid=8730&amp;pgesize=30&amp;pge=0&amp;totalstyles=30&amp;gridsize=3&amp;gridrow=5&amp;gridcolumn=3]]">Lazy Oaf, Blauwe crossbody tas, € 51,35</a></li>
+ 	<li><a href="https://ad.zanox.com/ppc/?43604760C25074585&amp;ulp=[[/converse-chuck-taylor-all-star-70-ox-sneaker-van-suede-8761060009-876106000947360?query=fh_view_size%3D48%26chl%3D1%26vt%3Dvariation_a%26fh_location%3D%252f%252fcatalog01%252fnl_NL%252fcategories%253c%257bcatalog01_60%257d%252fcategories%253c%257bcatalog01_60_640%257d%252fbasecolour%253e%257broze%257d%26country%3DBE]]">Converse, Suède All Stars, € 99,95</a></li>
+ 	<li><a href="https://www.zalando.be/moves-kia-minirok-mod21b000-m11.html">Moves, A-lijn rok, € 49,95 </a></li>
+</ol>
+Helemaal in de ban van het najaar? Lees dan zeker ook over hoe je <a href="http://localhost/mcp/5-manieren-om-je-woning-klaar-te-stomen/">je woning een heerlijke herfstige make-over kan geven</a> of bekijk deze inspiratiepost voor een kleurrijke herfst outfit.";s:10:"post_title";s:51:"Trend alert: faux fur frenzy met warme winterjassen";s:12:"post_excerpt";s:0:"";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:4:"open";s:11:"ping_status";s:4:"open";s:13:"post_password";s:0:"";s:9:"post_name";s:38:"faux-fur-frenzy-met-warme-winterjassen";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2017-10-10 10:21:54";s:17:"post_modified_gmt";s:19:"2017-10-10 08:21:54";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";s:1:"0";s:4:"guid";s:29:"http://localhost/mcp/?p=3416/";s:10:"menu_order";s:1:"0";s:9:"post_type";s:4:"post";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";}}
