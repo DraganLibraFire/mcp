@@ -1,0 +1,1 @@
+$Ï‡Y<?php exit; ?>a:1:{s:7:"content";a:7:{s:14:"_wpml_inactive";b:1;s:23:"active_sitewide_plugins";b:1;s:12:"wpseo_onpage";b:1;s:15:"icl_st_settings";b:1;s:18:"mc4wp_integrations";b:1;s:28:"wpseo-premium-redirects-base";b:1;s:12:"_split_terms";b:1;}}

@@ -1,0 +1,8 @@
+DÎ‡Y<?php exit; ?>a:6:{s:10:"last_error";s:0:"";s:10:"last_query";s:354:"	SELECT t.element_id, tax.term_id, tax.taxonomy
+													 FROM wp_icl_translations t
+				JOIN wp_term_taxonomy tax
+					ON t.element_id = tax.term_taxonomy_id
+						AND t.element_type = CONCAT('tax_', tax.taxonomy)
+													 JOIN wp_terms terms
+													  ON terms.term_id = tax.term_id
+													 WHERE tax.term_id != tax.term_taxonomy_id";s:11:"last_result";a:0:{}s:8:"col_info";a:3:{i:0;O:8:"stdClass":13:{s:4:"name";s:10:"element_id";s:7:"orgname";s:10:"element_id";s:5:"table";s:1:"t";s:8:"orgtable";s:19:"wp_icl_translations";s:3:"def";s:0:"";s:2:"db";s:27:"colorpassport_colorpassport";s:7:"catalog";s:3:"def";s:10:"max_length";i:0;s:6:"length";i:20;s:9:"charsetnr";i:63;s:5:"flags";i:49160;s:4:"type";i:8;s:8:"decimals";i:0;}i:1;O:8:"stdClass":13:{s:4:"name";s:7:"term_id";s:7:"orgname";s:7:"term_id";s:5:"table";s:3:"tax";s:8:"orgtable";s:16:"wp_term_taxonomy";s:3:"def";s:0:"";s:2:"db";s:27:"colorpassport_colorpassport";s:7:"catalog";s:3:"def";s:10:"max_length";i:0;s:6:"length";i:20;s:9:"charsetnr";i:63;s:5:"flags";i:49193;s:4:"type";i:8;s:8:"decimals";i:0;}i:2;O:8:"stdClass":13:{s:4:"name";s:8:"taxonomy";s:7:"orgname";s:8:"taxonomy";s:5:"table";s:3:"tax";s:8:"orgtable";s:16:"wp_term_taxonomy";s:3:"def";s:0:"";s:2:"db";s:27:"colorpassport_colorpassport";s:7:"catalog";s:3:"def";s:10:"max_length";i:0;s:6:"length";i:128;s:9:"charsetnr";i:224;s:5:"flags";i:16393;s:4:"type";i:253;s:8:"decimals";i:0;}}s:8:"num_rows";i:0;s:10:"return_val";i:0;}

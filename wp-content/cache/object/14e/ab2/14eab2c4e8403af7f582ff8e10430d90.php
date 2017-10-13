@@ -1,0 +1,12 @@
+N��Y<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:1068;s:11:"post_author";s:1:"3";s:9:"post_date";s:19:"2017-09-18 14:41:29";s:13:"post_date_gmt";s:19:"2017-09-18 12:41:29";s:12:"post_content";s:1447:"<h1>Disclaimer</h1>
+
+De informatie en gegevens die de gebruiker op deze website aantreft, betreffen een louter informatieve en algemene tekst. Deze informatie en gegevens zijn niet aangepast aan persoonlijke of specifieke omstandigheden en kunnen in geen enkel geval als een persoonlijk en / of professioneel advies beschouwd worden.
+
+My Color Passport Benelux levert alle redelijke inspanningen om haar website en de inhoud ervan, volledig en actueel te houden. My Color Passport Benelux waarborgt geenszins de volledigheid, juistheid en toegankelijkheid van haar website en de inhoud ervan. My Color Passport Benelux waarborgt niet dat haar website en de inhoud vrij zijn van virussen, wormen of andere codes die nadelige gevolgen kunnen hebben voor de gebruiker en diens software / hardware.
+
+My Color Passport Benelux kan in geen geval aansprakelijk gehouden worden voor  enige rechtstreeks en / of onrechtstreekse  schade als gevolg van het gebruik dat van deze website en de inhoud wordt gemaakt, dan wel als gevolg van een onbeschikbaarheid, evenals van iedere fout en / of onvolledigheid en / of weglating en / of onnauwkeurigheid op de website en haar  inhoud.
+
+My Color Passport Benelux  is niet verantwoordelijk voor  inhoud en correctheid van gegevens van websites die via haar website bereikbaar zouden zijn.
+
+De toegang tot deze website wordt verder beheerst door onze algemene voorwaarden en privacystatement.
+&nbsp;";s:10:"post_title";s:10:"Disclaimer";s:12:"post_excerpt";s:0:"";s:11:"post_status";s:7:"publish";s:14:"comment_status";s:6:"closed";s:11:"ping_status";s:6:"closed";s:13:"post_password";s:0:"";s:9:"post_name";s:10:"disclaimer";s:7:"to_ping";s:0:"";s:6:"pinged";s:0:"";s:13:"post_modified";s:19:"2017-09-18 14:46:29";s:17:"post_modified_gmt";s:19:"2017-09-18 12:46:29";s:21:"post_content_filtered";s:0:"";s:11:"post_parent";i:0;s:4:"guid";s:45:"https://mycolorpassport.com/nl/?page_id=1068/";s:10:"menu_order";i:3;s:9:"post_type";s:4:"page";s:14:"post_mime_type";s:0:"";s:13:"comment_count";s:1:"0";s:6:"filter";s:3:"raw";}}

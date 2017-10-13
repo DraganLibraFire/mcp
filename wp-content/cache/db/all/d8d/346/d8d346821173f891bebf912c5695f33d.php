@@ -1,0 +1,15 @@
+JÎ‡Y<?php exit; ?>a:6:{s:10:"last_error";s:0:"";s:10:"last_query";s:346:"
+			SELECT
+				s.id,
+				st.status,
+				s.domain_name_context_md5 AS ctx ,
+				st.value AS translated,
+				s.value AS original,
+				s.gettext_context
+			FROM wp_icl_strings s
+			LEFT JOIN wp_icl_string_translations st
+				ON s.id=st.string_id
+					AND st.language='nl'
+					AND s.language!='nl'
+			WHERE s.context = 'WPML'
+			 LIMIT 1000 OFFSET 0";s:11:"last_result";a:2:{i:0;O:8:"stdClass":6:{s:2:"id";s:1:"8";s:6:"status";N;s:3:"ctx";s:32:"c9203e3110feb389a62b2f341a6c346a";s:10:"translated";N;s:8:"original";s:34:"This post is also available in: %s";s:15:"gettext_context";s:0:"";}i:1;O:8:"stdClass":6:{s:2:"id";s:4:"8959";s:6:"status";N;s:3:"ctx";s:32:"6887793632e7c2d3c6c0fd01716f4bb8";s:10:"translated";N;s:8:"original";s:5:"Share";s:15:"gettext_context";s:0:"";}}s:8:"col_info";a:6:{i:0;O:8:"stdClass":13:{s:4:"name";s:2:"id";s:7:"orgname";s:2:"id";s:5:"table";s:1:"s";s:8:"orgtable";s:14:"wp_icl_strings";s:3:"def";s:0:"";s:2:"db";s:27:"colorpassport_colorpassport";s:7:"catalog";s:3:"def";s:10:"max_length";i:4;s:6:"length";i:20;s:9:"charsetnr";i:63;s:5:"flags";i:49699;s:4:"type";i:8;s:8:"decimals";i:0;}i:1;O:8:"stdClass":13:{s:4:"name";s:6:"status";s:7:"orgname";s:6:"status";s:5:"table";s:2:"st";s:8:"orgtable";s:26:"wp_icl_string_translations";s:3:"def";s:0:"";s:2:"db";s:27:"colorpassport_colorpassport";s:7:"catalog";s:3:"def";s:10:"max_length";i:0;s:6:"length";i:4;s:9:"charsetnr";i:63;s:5:"flags";i:36864;s:4:"type";i:1;s:8:"decimals";i:0;}i:2;O:8:"stdClass":13:{s:4:"name";s:3:"ctx";s:7:"orgname";s:23:"domain_name_context_md5";s:5:"table";s:1:"s";s:8:"orgtable";s:14:"wp_icl_strings";s:3:"def";s:0:"";s:2:"db";s:27:"colorpassport_colorpassport";s:7:"catalog";s:3:"def";s:10:"max_length";i:32;s:6:"length";i:128;s:9:"charsetnr";i:224;s:5:"flags";i:20485;s:4:"type";i:253;s:8:"decimals";i:0;}i:3;O:8:"stdClass":13:{s:4:"name";s:10:"translated";s:7:"orgname";s:5:"value";s:5:"table";s:2:"st";s:8:"orgtable";s:26:"wp_icl_string_translations";s:3:"def";s:0:"";s:2:"db";s:27:"colorpassport_colorpassport";s:7:"catalog";s:3:"def";s:10:"max_length";i:0;s:6:"length";i:262140;s:9:"charsetnr";i:224;s:5:"flags";i:16;s:4:"type";i:252;s:8:"decimals";i:0;}i:4;O:8:"stdClass":13:{s:4:"name";s:8:"original";s:7:"orgname";s:5:"value";s:5:"table";s:1:"s";s:8:"orgtable";s:14:"wp_icl_strings";s:3:"def";s:0:"";s:2:"db";s:27:"colorpassport_colorpassport";s:7:"catalog";s:3:"def";s:10:"max_length";i:34;s:6:"length";i:262140;s:9:"charsetnr";i:224;s:5:"flags";i:4113;s:4:"type";i:252;s:8:"decimals";i:0;}i:5;O:8:"stdClass":13:{s:4:"name";s:15:"gettext_context";s:7:"orgname";s:15:"gettext_context";s:5:"table";s:1:"s";s:8:"orgtable";s:14:"wp_icl_strings";s:3:"def";s:0:"";s:2:"db";s:27:"colorpassport_colorpassport";s:7:"catalog";s:3:"def";s:10:"max_length";i:0;s:6:"length";i:262140;s:9:"charsetnr";i:224;s:5:"flags";i:4113;s:4:"type";i:252;s:8:"decimals";i:0;}}s:8:"num_rows";i:2;s:10:"return_val";i:2;}
