@@ -1,4 +1,4 @@
-ıÏ‡Y<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:163;s:11:"post_author";s:1:"4";s:9:"post_date";s:19:"2017-09-28 15:46:08";s:13:"post_date_gmt";s:19:"2017-09-28 13:46:08";s:12:"post_content";s:299:"<div class="signup-footer-wrapper">
+ÜÓ‰Y<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:163;s:11:"post_author";s:1:"4";s:9:"post_date";s:19:"2017-09-28 15:46:08";s:13:"post_date_gmt";s:19:"2017-09-28 13:46:08";s:12:"post_content";s:299:"<div class="signup-footer-wrapper">
   <p>Krijg onze nieuwsbrief</p>
   <div class="relative signup-input-wrapper">
   	<input type="email" name="EMAIL" placeholder="you@email.com" required />

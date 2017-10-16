@@ -1,4 +1,4 @@
-Ï‡Y<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:153;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2017-08-22 12:46:05";s:13:"post_date_gmt";s:19:"2017-08-22 10:46:05";s:12:"post_content";s:1864:"<h3>HOE WERKT DE MY COLOR PASSPORT APP?</h3>
+ÜÓ‰Y<?php exit; ?>a:1:{s:7:"content";O:8:"stdClass":24:{s:2:"ID";i:153;s:11:"post_author";s:1:"1";s:9:"post_date";s:19:"2017-08-22 12:46:05";s:13:"post_date_gmt";s:19:"2017-08-22 10:46:05";s:12:"post_content";s:1864:"<h3>HOE WERKT DE MY COLOR PASSPORT APP?</h3>
 Dankzij de My Color Passport app heb je jouw persoonlijke kleurencoach steeds op zak. Je ontdekt er de kleuren die 100% bij je passen en kleuren combineren wordt vanaf nu een makkie. Neem een duik in de wondere wereld van kleur, want toegegeven: kleur is het nieuwe zwart!
 
 Wat valt er zoal te ontdekken in de app?

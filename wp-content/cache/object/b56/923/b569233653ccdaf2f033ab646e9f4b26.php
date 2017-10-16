@@ -1,1 +1,1 @@
-смаY<?php exit; ?>a:1:{s:7:"content";a:1:{s:4:"data";s:37:"http://localhost/mcp/main-sitemap.xsl";}}
+ВодY<?php exit; ?>a:1:{s:7:"content";a:1:{s:4:"data";s:37:"http://localhost/mcp/main-sitemap.xsl";}}

@@ -1,1 +1,1 @@
-ıÏ‡Y<?php exit; ?>a:1:{s:7:"content";a:1:{s:4:"data";s:42:"http://localhost/mcp/how-it-works/passport";}}
+ÜÓ‰Y<?php exit; ?>a:1:{s:7:"content";a:1:{s:4:"data";s:42:"http://localhost/mcp/how-it-works/passport";}}
