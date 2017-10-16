@@ -1,1 +1,0 @@
-עלאY<?php exit; ?>a:1:{s:7:"content";s:87:"<i class="fa fa-instagram" aria-hidden="true"></i> Follow @mycolorpassport on Instagram";}
