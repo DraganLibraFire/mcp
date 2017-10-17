@@ -10,7 +10,7 @@ function get_category_list_lf( $taxonomy, $item, $type ){
 
         <li class="<?php echo $type; ?>">
             <label for="<?php echo $term->slug; ?>">
-                <input data-link="<?php echo get_term_link($term); ?>?view=app" <?php echo $item->slug == $term->slug ? "checked = 'checked'" : ""; ?> class="" id="<?php echo $term->slug; ?>" name="<?php echo $taxonomy; ?>" type="<?php echo $type; ?>" value="<?php echo $term->slug; ?>">
+                <input data-link="<?php echo get_term_link($term); ?>" <?php echo $item->slug == $term->slug ? "checked = 'checked'" : ""; ?> class="" id="<?php echo $term->slug; ?>" name="<?php echo $taxonomy; ?>" type="<?php echo $type; ?>" value="<?php echo $term->slug; ?>">
                 <span class="radio-button-after"></span>
                 <span class="category-name"><?php echo $term->name; ?></span>
             </label>

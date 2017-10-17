@@ -52,13 +52,15 @@ Tags:
 .acf-map img {
     max-width: inherit !important;
 }
-/*@media (max-width: 600px) {*/
-    /*.hidden-filters .searchandfilter {*/
-        /*display: none !important;*/
-    /*}*/
-/*}*/
-/*@media (min-width: 601px) {*/
-    /*.hidden-filters .mm-searchandfilter{*/
-        /*display: none !important;*/
-    /*}*/
-/*}*/
+.tml-registration-confirmation {
+    margin-top: 20px !important;
+}
+
+@media screen and (max-width: 991px){
+    body .sf-field-taxonomy-product-profile ul li:first-of-type {
+        display: block !important;
+    }
+    body .sf-field-taxonomy-product-profile ul li:nth-child(2) {
+        display: none !important;
+    }
+}

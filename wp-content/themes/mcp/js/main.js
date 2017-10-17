@@ -555,9 +555,12 @@ jQuery(function($){
         }
 
         $(".open-info-box").off('click').on('click', function(){
+            console.log($(".hidden-filters .sf-field-taxonomy-product-profile input:checked").val());
             var element = $( "#" + $(".hidden-filters .sf-field-taxonomy-product-profile input:checked").val() );
 
-            $.featherlight( $(element).html() );
+            if( !$(element).html().trim() == '' ){
+                $.featherlight( $(element).html() );
+            }
 
         })
 
