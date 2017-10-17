@@ -1,0 +1,38 @@
+
+*** These modified files were found in JOE when it aborted on Mon Oct 16 10:33:37 2017
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+git config --global name = 'Igor'
+
+*** File '(Unnamed)'
+/home/devlf/devlf.com/petromin/.git/MERGE_MSG
+/home/der/.gitconfig
+* Build Log *
+/home/devlf/devlf.com/libradashboard/.git/MERGE_MSG
+/home/devlf/devlf.com/dagvers-shop/.git/MERGE_MSG
+/home/devlf/devlf.com/dealeron/.git/MERGE_MSG
+/home/devlf/devlf.com/mcp/.git/MERGE_MSG
+
+*** These modified files were found in JOE when it aborted on Mon Oct 16 10:34:16 2017
+*** JOE was aborted because the terminal closed
+
+*** File '/home/devlf/devlf.com/mcp/.git/MERGE_MSG'
+dunno
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+
+*** File '(Unnamed)'
+git config --global name = 'Igor'
+
+*** File '(Unnamed)'
+/home/devlf/devlf.com/petromin/.git/MERGE_MSG
+/home/der/.gitconfig
+* Build Log *
+/home/devlf/devlf.com/libradashboard/.git/MERGE_MSG
+/home/devlf/devlf.com/dagvers-shop/.git/MERGE_MSG
+/home/devlf/devlf.com/dealeron/.git/MERGE_MSG
+/home/devlf/devlf.com/mcp/.git/MERGE_MSG
