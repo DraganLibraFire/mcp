@@ -486,6 +486,13 @@ jQuery(function($){
                     });
                 });
 
+                $(_this).on('click', function(e){
+                    e.preventDefault();
+                    $(_this).parents('li').eq(0).find(' > ul').show(0).stop().animate({
+                        left: 0
+                    });
+                });
+
                 $(back_btn).on('click', function(){
                     $(_this).parents('li').eq(0).find(' > ul').show(0).stop().animate({
                         left: '105%'
