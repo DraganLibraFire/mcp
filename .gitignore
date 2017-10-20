@@ -1,7 +1,7 @@
 # Env Config
 wp-config.php
 xxx.php
-/wp-content/cache/
+/wp-content/cache/*
 #STORM
 .idea
 
