@@ -230,7 +230,8 @@ class Search_Filter_Taxonomy_Walker extends Walker_Category {
 				        // display a sub field value
 						$related_colors[] = [
 							'color' 		=> get_sub_field('related_color')->term_id,
-							'has_smiley' 	=> get_sub_field('has_smiley') ? 1 : 0
+							'has_smiley' 	=> get_sub_field('has_smiley') ? 1 : 0,
+							'smiley_color' 	=> get_sub_field('black_smiley') ? 'black' : 'white',
 						];
 				
 				    endwhile;

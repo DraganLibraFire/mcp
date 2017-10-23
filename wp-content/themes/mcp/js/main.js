@@ -543,6 +543,13 @@ jQuery(function($){
                 } else{
                     $(color_box_li).removeClass('has_smiley');
                 }
+
+                if( color_box.smiley_color == 'black' ){
+                    $(color_box_li).addClass('black_smiley');
+                } else{
+                    $(color_box_li).removeClass('black_smiley');
+                    $(color_box_li).addClass('white_smiley');
+                }
             }
         }
     }
