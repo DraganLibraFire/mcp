@@ -1453,6 +1453,13 @@ body > .searchandfilter{
         cursor: pointer;
       }
       &.has_smiley{
+        &.black_amiley {
+          label {
+            &:after {
+              background-image: url("../images/smileyBlack.png");
+            }
+          }
+        }
         label{
           &:after{
             background-image: url("../images/smileyWhite.png");
@@ -1636,6 +1643,20 @@ body > .searchandfilter{
 figcaption.wp-caption-text {
   font-size: 13px;
 }
+.gallery {
+  figure {
+    margin: 1em 0px;
+    .gallery-icon {
+      padding-bottom: 10px;
+    }
+    figcaption.wp-caption-text {
+      font-size: 15px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
 .no-products{
   padding-left: 30px;
 }
@@ -2185,6 +2206,20 @@ body .slick-slider.products-profile-slider .slick-arrow {
       //font-size: 25px;
       //line-height: 1.2;
     }
+  }
+}
+.videoWrapper {
+  position: relative;
+  padding-bottom: 54%;
+  padding-top: 25px;
+  height: 0;
+  margin-top: 0;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 /*-------------------- Blog page styling ---------------*/

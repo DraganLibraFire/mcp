@@ -236,6 +236,9 @@
       }
     }
   }
+  .videoWrapper {
+    padding-bottom: 53.6%;
+  }
 }/*(max-width: 1200px)*/
 @media all and (max-width: 1027px) {
   .section-recent-articles {
@@ -330,6 +333,9 @@
   }
 }/*(max-width: 1020px)*/
 @media all and (max-width: 991px) {
+  .videoWrapper {
+    padding-bottom: 52.8%;
+  }
   .single-post-sidebar-wrapper{
     margin-top: 20px;
   }
@@ -962,6 +968,9 @@
       padding-left: 0;
     }
   }
+  .videoWrapper {
+    padding-bottom: 51.5%;
+  }
 }
 
 @media all and (max-width: 568px) {
@@ -1007,6 +1016,24 @@
 }/*(max-width: 568px)*/
 
 @media all and (max-width: 500px) {
+  .bzfy-o-container {
+    padding-bottom: 20px;
+    &:after {
+      bottom: 0;
+      position: absolute;
+      content: "...";
+      font-size: 20px;
+      left: 0;
+    }
+  }
+  .bzfy-o-layout {
+    .bzfy-o-layout__item {
+      display: none;
+      &:nth-child(-n+4) {
+        display: block;
+      }
+    }
+  }
   .blog-page-list-hashtags {
     li{
       display: block;
@@ -1025,8 +1052,8 @@
       }
     }
   }
-  .filters-main-wrapper {
-    padding: 0 15px !important;
+  .profile-inspiration-content-section {
+    padding: 0;
   }
   .select2-container--default {
     .select2-selection--single {
@@ -1045,10 +1072,7 @@
     .tabs-content-wrapper {
       .single-product {
         display: none;
-        &:first-of-type {
-          display: block;
-        }
-        &:nth-child(2) {
+        &:nth-child(-n+2) {
           display: block;
         }
       }
@@ -1136,6 +1160,9 @@
   }
 }/*(max-width: 460px)*/
 @media all and (max-width: 420px) {
+  .videoWrapper {
+    padding-bottom: 49.8%;
+  }
   header {
     #site-navigation {
       > div{
@@ -1149,6 +1176,11 @@
     }
   }
 }
+@media all and (max-width: 385px) {
+  .videoWrapper {
+    padding-bottom: 48.9%;
+  }
+}/*(max-width: 385px)*/
 @media all and (max-width: 375px) {
   body {
     .slick-slider {
@@ -1167,8 +1199,14 @@
       }
     }
   }
+  .videoWrapper {
+    padding-bottom: 48.5%;
+  }
 }/*(max-width: 375px)*/
 @media all and (max-width: 355px) {
+  .videoWrapper {
+    padding-bottom: 47.7%;
+  }
   .brand-name {
     text-align: left;
     width: 100%;
