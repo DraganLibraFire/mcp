@@ -108,7 +108,7 @@
 			</div>
 		</div>
 		<?php
-		$custom_taxterms = wp_get_object_terms( $post->ID, 'product-profile', array('fields' => 'ids') );
+		$custom_taxterms = wp_get_object_terms( $post->ID, 'product-sex', array('fields' => 'ids') );
 
 		if( !empty($custom_taxterms) ) :
 		?>
