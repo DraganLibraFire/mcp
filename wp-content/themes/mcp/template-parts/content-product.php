@@ -127,7 +127,7 @@
 								'orderby' => 'rand',
 								'tax_query' => array(
 										array(
-												'taxonomy' => 'product-profile',
+												'taxonomy' => 'product-sex',
 												'field' => 'id',
 												'terms' => $custom_taxterms
 										)
