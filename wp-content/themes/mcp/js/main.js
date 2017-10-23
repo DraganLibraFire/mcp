@@ -532,7 +532,8 @@ jQuery(function($){
         var data_relation = $(input).data('related-colors');
         if( data_relation == undefined ) return;
         if( data_relation.length > 0 ){
-            $(".sf-field-taxonomy-product-color li").css('display', 'none')
+            $(".sf-field-taxonomy-product-color li").css('display', 'none');
+
             for( var i = 0; i < data_relation.length; i++ ){
                 var color_box = data_relation[i];
                 var color_box_li = $(".hidden-filters .sf-field-taxonomy-product-color li.sf-item-" + color_box.color);
