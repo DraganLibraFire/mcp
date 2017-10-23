@@ -108,10 +108,10 @@ body {
   }
   [style="background-color: white;"],
   [style="background-color: rgb(255, 255, 255);"]{
-    border: 2px solid $dark_grey;
+    border: 2px solid $dark_grey !important;
   }
   [style="background: #ffffff;"] {
-    border: 2px solid $dark_grey;
+    border: 2px solid $dark_grey !important;
   }
   .slick-slider {
     padding-left: 0;
@@ -1407,6 +1407,13 @@ body {
     color: $main_green
   }
 }
+/*---- inspo styling ----*/
+.mobile-select-section {
+  display: none;
+}
+.mobile-visible {
+  display: none;
+}
 /*---- sidebar styling ----*/
 .page-template-tpl-filter{
   .featherlight-content{
@@ -1448,6 +1455,10 @@ body > .searchandfilter{
       &.has_smiley{
         label{
           &:after{
+            background-image: url("../images/smileyWhite.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
             position: absolute;
             content: "\f118";
             display: inline-block;
@@ -1462,9 +1473,10 @@ body > .searchandfilter{
             right: 0;
             bottom: 0;
             margin: auto;
-            width: 20px;
-            height: 18px;
-            font-size: 110%;
+            width: 28px;
+            height: 28px;
+            font-size: 0;
+            color: transparent;
             text-align: center;
           }
         }
@@ -1552,6 +1564,7 @@ body > .searchandfilter{
         }
         &:not(.sf-item-0) {
           label {
+            border: 2px solid transparent;
             @include border-radius(50%);
             display: block;
             height: 46px;
@@ -1568,12 +1581,16 @@ body > .searchandfilter{
           input{
             &:checked{
               + .radio-button-after{
-                opacity: 1;
                 background: transparent;
-                border: 0;
+                border: 2px solid $main_dark;
+                opacity: 1;
+                height: 54px;
+                left: -6px;
+                width: 54px;
                 &:after{
                   content: "\f00c";
-                  color: green;
+                  //color: green;
+                  color: transparent;
                   display: inline-block;
                   font: normal normal normal 14px/1 FontAwesome;
                   font-size: inherit;
@@ -1615,6 +1632,9 @@ body > .searchandfilter{
       }
     }
   }
+}
+figcaption.wp-caption-text {
+  font-size: 13px;
 }
 .no-products{
   padding-left: 30px;

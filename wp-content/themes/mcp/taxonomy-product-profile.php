@@ -21,11 +21,20 @@ $default_lang_id = icl_object_id( $term_id, 'product-profile', true, 'nl' );
 			<main id="main" class="site-main" role="main">
 				<div class="clearfix">
 					<div class="col-md-3 filters-main-wrapper">
-						<div class="profiles-radio-wrapper my-color-profile">
+						<div class="profiles-radio-wrapper my-color-profile desktop-radion-section">
 							<h3><?php _e('Mijn #MyCP type', 'mcp'); ?></h3>
 							<ul>
 								<?php get_category_list_lf( 'product-profile', get_queried_object(), 'radio' ); ?>
 							</ul>
+						</div>
+						<div class="profiles-radio-wrapper my-color-profile mobile-select-section">
+							<select name="my-color-type" id="select-color-type">
+								<option value="" disabled selected><?php _e('Mijn #MyCP type', 'mcp'); ?></option>
+								<option value="amsterdam"><?php _e('Amsterdam', 'mcp'); ?></option>
+								<option value="barcelona"><?php _e('Barcelona', 'mcp'); ?></option>
+								<option value="berlin"><?php _e('Berlin', 'mcp'); ?></option>
+								<option value="cape-town"><?php _e('Cape Town', 'mcp'); ?></option>
+							</select>
 						</div>
 						<div class="filters-main-wrapper profiles-radio-wrapper">
 							<div class="sf-field-taxonomy-product-color">
@@ -64,6 +73,11 @@ $default_lang_id = icl_object_id( $term_id, 'product-profile', true, 'nl' );
 
 				<?php if( have_rows('collections', $POST__ID) ) : ?>
 					<div class="profile-content-section">
+						<div class="mobile-visible">
+							<p class="section-heading">
+								<?php _e('My OUTFITS', 'mcp'); ?>
+							</p>
+						</div>
 						<?php get_template_part( 'template-parts/content', 'collection' ); ?>
 					</div>
 				<?php endif; ?>
