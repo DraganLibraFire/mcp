@@ -1162,8 +1162,8 @@ body > .searchandfilter {
       margin-left: 10px;
       color: #007A91;
       cursor: pointer; }
-    .filters-main-wrapper .searchandfilter li.has_smiley.black_amiley label:after,
-    body > .searchandfilter .searchandfilter li.has_smiley.black_amiley label:after {
+    .filters-main-wrapper .searchandfilter li.has_smiley.black_smiley label:after,
+    body > .searchandfilter .searchandfilter li.has_smiley.black_smiley label:after {
       background-image: url("../images/smileyBlack.png"); }
     .filters-main-wrapper .searchandfilter li.has_smiley label:after,
     body > .searchandfilter .searchandfilter li.has_smiley label:after {
@@ -3447,7 +3447,7 @@ body:not(.page-template-tpl-filter) .featherlight-content {
     display: none !important; }
 
   .videoWrapper {
-    padding-bottom: 48.5%; } }
+    padding-bottom: 48.7%; } }
 /*(max-width: 375px)*/
 @media all and (max-width: 355px) {
   .videoWrapper {
