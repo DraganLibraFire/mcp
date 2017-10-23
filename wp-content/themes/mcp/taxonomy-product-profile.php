@@ -25,15 +25,12 @@ $default_lang_id = icl_object_id( $term_id, 'product-profile', true, 'nl' );
 							<h3><?php _e('Mijn #MyCP type', 'mcp'); ?></h3>
 							<ul>
 								<?php get_category_list_lf( 'product-profile', get_queried_object(), 'radio' ); ?>
+								<?php get_category_select_lf( 'product-profile', get_queried_object(), 'radio' ); ?>
 							</ul>
 						</div>
 						<div class="profiles-radio-wrapper my-color-profile mobile-select-section">
 							<select name="my-color-type" id="select-color-type">
-								<option value="" disabled selected><?php _e('Mijn #MyCP type', 'mcp'); ?></option>
-								<option value="amsterdam"><?php _e('Amsterdam', 'mcp'); ?></option>
-								<option value="barcelona"><?php _e('Barcelona', 'mcp'); ?></option>
-								<option value="berlin"><?php _e('Berlin', 'mcp'); ?></option>
-								<option value="cape-town"><?php _e('Cape Town', 'mcp'); ?></option>
+								<?php get_category_select_lf( 'product-profile', get_queried_object(), 'radio' ); ?>
 							</select>
 						</div>
 						<div class="filters-main-wrapper profiles-radio-wrapper">
@@ -101,7 +98,12 @@ $default_lang_id = icl_object_id( $term_id, 'product-profile', true, 'nl' );
 	jQuery(function(){
 		jQuery(".profiles-radio-wrapper input").on('change', function(){
 			window.location.href = this.attributes['data-link'].value;
-		})
+		});
+
+		jQuery(".profiles-radio-wrapper select").on('change', function(){
+			var $option = jQuery(this).find("option:selected");
+			window.location.href = $option.attr('data-link');
+		});
 	})
 </script>
 <?php get_footer(); ?>

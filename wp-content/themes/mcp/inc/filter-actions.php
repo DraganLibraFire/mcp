@@ -20,6 +20,23 @@ function get_category_list_lf( $taxonomy, $item, $type ){
     }
 
 }
+
+function get_category_select_lf( $taxonomy, $item, $type ){
+
+    $terms = get_terms( array( 'taxonomy' => $taxonomy, 'hide_empty' => false, 'offset' => 1 ) );
+
+    foreach( $terms as $index => $term ){
+        if( $index == 0 ) continue;
+        ?>
+        <option value="<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" <?php echo $item->slug == $term->slug ? "checked = 'checked'" : ""; ?> data-link="<?php echo get_term_link($term); ?>">
+            <?php echo $term->name; ?>
+        </option>
+
+        <?php
+    }
+
+}
+
 function list_related_repeater_colors( $name, $taxonomy, $ID = 0 ){
     $default_lang_id = icl_object_id( $ID, 'product-profile', true, 'nl' );
     // check if the repeater field has rows of data
