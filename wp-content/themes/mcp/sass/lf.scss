@@ -1640,9 +1640,14 @@ body > .searchandfilter{
 //    }
 //  }
 //}
+div.featherlight {
+  .featherlight-content {
+    padding: 45px 85px 0px;
+  }
+}
 .featherlight-content {
-  p {
-    padding-left: 130px;
+  p[class^="mcp"] {
+    padding-left: 140px;
     min-height: 150px;
     position: relative;
     &:after {
