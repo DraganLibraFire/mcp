@@ -1325,8 +1325,31 @@ body > .searchandfilter {
   body > .searchandfilter .searchandfilter ul li .children {
     display: none; }
 
-.sf-field-taxonomy-product-profile ul li:first-of-type {
-  display: none !important; }
+.featherlight-content p {
+  padding-left: 130px;
+  min-height: 150px;
+  position: relative; }
+  .featherlight-content p:after {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 52px;
+    border: 2px solid #000;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    height: 120px;
+    left: 0;
+    top: 0;
+    width: 120px; }
+.featherlight-content .mcp-color-smiley:after {
+  background-image: url("../images/smileyBlack.png"); }
+.featherlight-content .mcp-color-blacknosmiley:after {
+  background-color: #000; }
+.featherlight-content .mcp-color-blacksmiley:after {
+  background-image: url("../images/smileyWhite.png"); }
 
 figcaption.wp-caption-text {
   font-size: 13px; }

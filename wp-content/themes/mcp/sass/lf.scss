@@ -1631,15 +1631,56 @@ body > .searchandfilter{
     }
   }
 }
-.sf-field-taxonomy-product-profile{
-  ul{
-    li{
-      &:first-of-type{
-        display: none !important;
-      }
+//.sf-field-taxonomy-product-profile{
+//  ul{
+//    li{
+//      &:first-of-type{
+//        display: none !important;
+//      }
+//    }
+//  }
+//}
+.featherlight-content {
+  p {
+    padding-left: 130px;
+    min-height: 150px;
+    position: relative;
+    &:after {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 52px;
+      border: 2px solid $main_dark;
+      @include border-radius(50%);
+      content: '';
+      position: absolute;
+      height: 120px;
+      left: 0;
+      top: 0;
+      width: 120px;
+    }
+  }
+  .mcp-color-smiley {
+    &:after {
+      background-image: url("../images/smileyBlack.png");
+    }
+  }
+  .mcp-color-nosmiley {
+    &:after {
+
+    }
+  }
+  .mcp-color-blacknosmiley {
+    &:after {
+      background-color: $main_dark;
+    }
+  }
+  .mcp-color-blacksmiley {
+    &:after {
+      background-image: url("../images/smileyWhite.png");
     }
   }
 }
+
 figcaption.wp-caption-text {
   font-size: 13px;
 }
