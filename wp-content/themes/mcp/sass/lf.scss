@@ -1647,21 +1647,23 @@ div.featherlight {
 }
 .featherlight-content {
   p[class^="mcp"] {
-    padding-left: 140px;
-    min-height: 150px;
+    padding-left: 120px;
+    min-height: 100px;
     position: relative;
     &:after {
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 52px;
+      background-size: 42px;
       border: 2px solid $main_dark;
       @include border-radius(50%);
+      bottom: 0;
       content: '';
       position: absolute;
-      height: 120px;
+      height: 100px;
       left: 0;
+      margin: auto;
       top: 0;
-      width: 120px;
+      width: 100px;
     }
   }
   .mcp-color-smiley {

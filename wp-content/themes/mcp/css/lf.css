@@ -1329,24 +1329,26 @@ div.featherlight .featherlight-content {
   padding: 45px 85px 0px; }
 
 .featherlight-content p[class^="mcp"] {
-  padding-left: 140px;
-  min-height: 150px;
+  padding-left: 120px;
+  min-height: 100px;
   position: relative; }
   .featherlight-content p[class^="mcp"]:after {
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 52px;
+    background-size: 42px;
     border: 2px solid #000;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     border-radius: 50%;
+    bottom: 0;
     content: '';
     position: absolute;
-    height: 120px;
+    height: 100px;
     left: 0;
+    margin: auto;
     top: 0;
-    width: 120px; }
+    width: 100px; }
 .featherlight-content .mcp-color-smiley:after {
   background-image: url("../images/smileyBlack.png"); }
 .featherlight-content .mcp-color-blacknosmiley:after {
