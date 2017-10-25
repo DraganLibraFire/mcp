@@ -112,81 +112,69 @@ class LF_Import
 
             if( $product['name'] == '' ) continue;
 
-            $args = array(
-                'post_type'     => 'product',
-                'fields'        => 'ids',
-                'name'          => sanitize_title($product['name']),
-                'meta_query'    => array(
-                    array(
-                        'key'       => 'xls_index',
-                        'value'     => $fake_index,
-                        'compare'   => '!='
-                    )
-                )
-            );
-
-            $product_object = get_posts($args)[0];
-
+            $existing_products_index  = get_page_by_post_name($product['name']);
 
             /* No products with the same name */
-            if ( is_null($product_object) || ( ( $fake_index != get_field('xls_index', $product_object)) && !is_null($product_object) )  ) {
-                $new++;
+            if ( empty( $existing_products_index ) ) {
 
-                if( is_array( $product['images'] ) && trim($fields['images']) != '' ){
-                    foreach ($product['images'] as $image) {
-                        if( trim($image) != '' ){
-                            array_push( $product['attachments'], $this->download_image( $image ) );
-                        }
-                    }
+                $this->import_product( $fake_index, $product, $fields);
+
+            } else{
+                if( !in_array($fake_index, $existing_products_index ) ){
+                    $this->import_product( $fake_index, $product, $fields);
                 }
-
-                $product_create_args = [
-                    'post_type' => 'product',
-                    'post_title' => ($product['name']),
-                    'post_content' => ($product['description']),
-                ];
-
-                if( trim($fields['images']) != '' ){
-                    $product_create_args['post_status'] = 'publish';
-                }
-
-                $product_id = wp_insert_post(
-                    $product_create_args
-                );
-
-                if( $product_id == 0 ){
-//                    echo "<pre>taj"; print_r( array(
-//                        'post_type' => 'product',
-//                        'post_title' => (string)$product['name'],
-//                        'post_content' => $product['description'],
-//                        'post_status' => trim($fields['images']) != '' ? 'publish' : 'draft',
-//                    ) ); echo "</pre>" ; exit();
-                }
-
-
-                $this->add_product_terms( $product_id, $product['categories'], 'product-category');
-                $this->add_product_terms( $product_id, $product['brand'], 'product-brands');
-                $this->add_product_terms( $product_id, $product['color'], 'product-color', 'slug');
-                $this->add_product_terms( $product_id, $product['occasions'], 'product-gelegenheden');
-                $this->add_product_terms( $product_id, $product['profiles'], 'product-profile');
-                $this->add_product_terms( $product_id, $product['sex'], 'product-sex');
-
-
-                update_field( 'price', $product['price'], $product_id);
-                update_field( 'product_link', $product['url'], $product_id);
-                update_field( 'featured_image', $product['attachments'][0], $product_id);
-                update_field( 'images', $product['attachments'], $product_id);
-                update_field( 'xls_index', $fake_index, $product_id);
-
             }
 
             $fake_index++;
 
         }
-
         $this->JOB_DONE = true;
         wp_redirect( $_SERVER['HTTP_REFERER'] . "&imported&added={$new}" );
 
+    }
+
+    public function import_product( $fake_index, $product, $fields){
+
+        if( is_array( $product['images'] ) && trim($fields['images']) != '' ){
+            foreach ($product['images'] as $image) {
+                if( trim($image) != '' ){
+                    array_push( $product['attachments'], $this->download_image( $image ) );
+                }
+            }
+        }
+
+        $product_create_args = [
+            'post_type' => 'product',
+            'post_title' => ($product['name']),
+            'post_content' => ($product['description']),
+        ];
+
+        if( trim($fields['images']) != '' ){
+            $product_create_args['post_status'] = 'publish';
+        }
+
+        $product_id = wp_insert_post(
+            $product_create_args
+        );
+
+        if( $product_id == 0 ){
+            echo "<pre>"; print_r( 'Error' ); echo "</pre>" ;
+        }
+
+
+        $this->add_product_terms( $product_id, $product['categories'], 'product-category');
+        $this->add_product_terms( $product_id, $product['brand'], 'product-brands');
+        $this->add_product_terms( $product_id, $product['color'], 'product-color', 'slug');
+        $this->add_product_terms( $product_id, $product['occasions'], 'product-gelegenheden');
+        $this->add_product_terms( $product_id, $product['profiles'], 'product-profile');
+        $this->add_product_terms( $product_id, $product['sex'], 'product-sex');
+
+
+        update_field( 'price', $product['price'], $product_id);
+        update_field( 'product_link', $product['url'], $product_id);
+        update_field( 'featured_image', $product['attachments'][0], $product_id);
+        update_field( 'images', $product['attachments'], $product_id);
+        update_field( 'xls_index', $fake_index, $product_id);
     }
     public function update_outfits($file)
     {
@@ -420,29 +408,29 @@ class LF_Import
                 <form enctype="multipart/form-data" action="<?php echo admin_url('admin-post.php'); ?>" method="post">
                     <table class="wp-list-table widefat fixed">
                         <thead>
-                            <th>CSV File</th>
-                            <th>Type (product or taxonomy)</th>
-                            <th>Action</th>
+                        <th>CSV File</th>
+                        <th>Type (product or taxonomy)</th>
+                        <th>Action</th>
                         </thead>
                         <tbody>
 
-                                <input type="hidden" name="action" value="update_products">
-                                <tr>
-                                    <td>
-                                        <input accept=".csv" type="file" name="csv">
-                                    </td>
-                                    <td>
-                                        <select name="type" id="">
-                                            <option value="product">Products</option>
-                                            <?php foreach (get_object_taxonomies( 'product', 'names' ) as $get_object_taxonomy) {
-                                                echo "<option value='".$get_object_taxonomy."'>(Categorie) {$get_object_taxonomy}</option>";
-                                            }?>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <input type="submit" name="import_LF_CSV" value="IMPORT">
-                                    </td>
-                                </tr>
+                        <input type="hidden" name="action" value="update_products">
+                        <tr>
+                            <td>
+                                <input accept=".csv" type="file" name="csv">
+                            </td>
+                            <td>
+                                <select name="type" id="">
+                                    <option value="product">Products</option>
+                                    <?php foreach (get_object_taxonomies( 'product', 'names' ) as $get_object_taxonomy) {
+                                        echo "<option value='".$get_object_taxonomy."'>(Categorie) {$get_object_taxonomy}</option>";
+                                    }?>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="submit" name="import_LF_CSV" value="IMPORT">
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </form>
@@ -470,33 +458,33 @@ class LF_Import
                         </tbody>
                     </table>
                 </form>
-<!--                <form enctype="multipart/form-data" action="--><?php //echo admin_url('admin-post.php'); ?><!--" method="post">-->
-<!--                    <table class="wp-list-table widefat fixed">-->
-<!--                        <thead>-->
-<!--                        <th>CSV File</th>-->
-<!--                        <th>Type (product or taxonomy)</th>-->
-<!--                        <th>Action</th>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!---->
-<!--                        <input type="hidden" name="action" value="update_products">-->
-<!--                        <input type="hidden" name="translation" value="update_products_translation">-->
-<!--                        <tr>-->
-<!--                            <td>-->
-<!--                                <input accept=".csv" type="file" name="csv">-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <select name="type" id="">-->
-<!---->
-<!--                                </select>-->
-<!--                            </td>-->
-<!--                            <td>-->
-<!--                                <input type="submit" name="import_LF_CSV" value="IMPORT">-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        </tbody>-->
-<!--                    </table>-->
-<!--                </form>-->
+                <!--                <form enctype="multipart/form-data" action="--><?php //echo admin_url('admin-post.php'); ?><!--" method="post">-->
+                <!--                    <table class="wp-list-table widefat fixed">-->
+                <!--                        <thead>-->
+                <!--                        <th>CSV File</th>-->
+                <!--                        <th>Type (product or taxonomy)</th>-->
+                <!--                        <th>Action</th>-->
+                <!--                        </thead>-->
+                <!--                        <tbody>-->
+                <!---->
+                <!--                        <input type="hidden" name="action" value="update_products">-->
+                <!--                        <input type="hidden" name="translation" value="update_products_translation">-->
+                <!--                        <tr>-->
+                <!--                            <td>-->
+                <!--                                <input accept=".csv" type="file" name="csv">-->
+                <!--                            </td>-->
+                <!--                            <td>-->
+                <!--                                <select name="type" id="">-->
+                <!---->
+                <!--                                </select>-->
+                <!--                            </td>-->
+                <!--                            <td>-->
+                <!--                                <input type="submit" name="import_LF_CSV" value="IMPORT">-->
+                <!--                            </td>-->
+                <!--                        </tr>-->
+                <!--                        </tbody>-->
+                <!--                    </table>-->
+                <!--                </form>-->
             </div>
             <?php
         }
