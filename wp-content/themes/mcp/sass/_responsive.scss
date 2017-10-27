@@ -1071,10 +1071,10 @@
   .section-collection-inner {
     .tabs-content-wrapper {
       .single-product {
-        display: none;
-        &:nth-child(-n+2) {
-          display: block;
-        }
+        //display: none;
+        //&:nth-child(-n+2) {
+        //  display: block;
+        //}
       }
     }
   }

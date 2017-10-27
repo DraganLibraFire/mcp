@@ -3399,11 +3399,6 @@ body:not(.page-template-tpl-filter) .featherlight-content {
   .mobile-visible {
     display: block; }
 
-  .section-collection-inner .tabs-content-wrapper .single-product {
-    display: none; }
-    .section-collection-inner .tabs-content-wrapper .single-product:nth-child(-n+2) {
-      display: block; }
-
   .brand-name {
     font-size: 17px;
     padding-left: 4px;
