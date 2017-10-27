@@ -10,7 +10,7 @@ function get_category_list_lf( $taxonomy, $item, $type ){
 
         <li class="<?php echo $type; ?>">
             <label for="<?php echo $term->slug; ?>">
-                <input data-link="<?php echo get_term_link($term); ?>" <?php echo $item->slug == $term->slug ? "checked = 'checked'" : ""; ?> class="" id="<?php echo $term->slug; ?>" name="<?php echo $taxonomy; ?>" type="<?php echo $type; ?>" value="<?php echo $term->slug; ?>">
+                <input data-link="<?php echo get_term_link($term); ?><?php if( isset($_GET['view']) && $_GET['view'] == 'app' ): echo '?view=app'; endif;?>" <?php echo $item->slug == $term->slug ? "checked = 'checked'" : ""; ?> class="" id="<?php echo $term->slug; ?>" name="<?php echo $taxonomy; ?>" type="<?php echo $type; ?>" value="<?php echo $term->slug; ?>">
                 <span class="radio-button-after"></span>
                 <span class="category-name"><?php echo $term->name; ?></span>
             </label>
@@ -28,7 +28,7 @@ function get_category_select_lf( $taxonomy, $item, $type ){
     foreach( $terms as $index => $term ){
         if( $index == 0 ) continue;
         ?>
-        <option value="<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" <?php echo $item->slug == $term->slug ? "checked = 'checked'" : ""; ?> data-link="<?php echo get_term_link($term); ?>">
+        <option value="<?php echo $term->slug; ?>" id="<?php echo $term->slug; ?>" <?php echo $item->slug == $term->slug ? "selected" : ""; ?> data-link="<?php echo get_term_link($term); ?><?php if( isset($_GET['view']) && $_GET['view'] == 'app' ): echo '?view=app'; endif;?>">
             <?php echo $term->name; ?>
         </option>
 
