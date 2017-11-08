@@ -1100,7 +1100,8 @@ body.home #main {
     top: -93px;
     max-width: 275px; }
     .filters-resault-content-wrapper .brand-logo-image img {
-      max-height: 60px; }
+      max-height: 60px;
+      max-width: 150px; }
 
 .sort-wrapper .sf-field-sort_order > a {
   padding: 5px 0 5px;
@@ -1162,9 +1163,12 @@ body > .searchandfilter {
       margin-left: 10px;
       color: #007A91;
       cursor: pointer; }
-    .filters-main-wrapper .searchandfilter li.has_smiley.black_smiley label:after,
-    body > .searchandfilter .searchandfilter li.has_smiley.black_smiley label:after {
-      background-image: url("../images/smileyBlack.png"); }
+    .filters-main-wrapper .searchandfilter li.has_smiley.black_smiley label,
+    body > .searchandfilter .searchandfilter li.has_smiley.black_smiley label {
+      border-color: #95989a !important; }
+      .filters-main-wrapper .searchandfilter li.has_smiley.black_smiley label:after,
+      body > .searchandfilter .searchandfilter li.has_smiley.black_smiley label:after {
+        background-image: url("../images/smileyBlack.png"); }
     .filters-main-wrapper .searchandfilter li.has_smiley label:after,
     body > .searchandfilter .searchandfilter li.has_smiley label:after {
       background-image: url("../images/smileyWhite.png");
@@ -1233,6 +1237,53 @@ body > .searchandfilter {
     body > .searchandfilter li label {
       position: relative;
       cursor: pointer; }
+      .filters-main-wrapper li label[class*='silver'] .radio-button-after, .filters-main-wrapper li label[class*='gold'] .radio-button-after, .filters-main-wrapper li label[class*='copper'] .radio-button-after,
+      body > .searchandfilter li label[class*='silver'] .radio-button-after,
+      body > .searchandfilter li label[class*='gold'] .radio-button-after,
+      body > .searchandfilter li label[class*='copper'] .radio-button-after {
+        left: -4px !important; }
+      .filters-main-wrapper li label[class*='silver'],
+      body > .searchandfilter li label[class*='silver'] {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dbdbdb+0,818282+100 */
+        background: #dbdbdb;
+        /* Old browsers */
+        background: -moz-linear-gradient(top, #dbdbdb 0%, #818282 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #dbdbdb 0%, #818282 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #dbdbdb 0%, #818282 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#818282',GradientType=0 );
+        /* IE6-9 */
+        border: none !important; }
+      .filters-main-wrapper li label[class*='gold'],
+      body > .searchandfilter li label[class*='gold'] {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9ef98+0,c39b49+100 */
+        background: #f9ef98;
+        /* Old browsers */
+        background: -moz-linear-gradient(top, #f9ef98 0%, #c39b49 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #f9ef98 0%, #c39b49 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #f9ef98 0%, #c39b49 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9ef98', endColorstr='#c39b49',GradientType=0 );
+        /* IE6-9 */
+        border: none !important; }
+      .filters-main-wrapper li label[class*='copper'],
+      body > .searchandfilter li label[class*='copper'] {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#faccb8+0,cb6631+100 */
+        background: #faccb8;
+        /* Old browsers */
+        background: -moz-linear-gradient(top, #faccb8 0%, #cb6631 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #faccb8 0%, #cb6631 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, #faccb8 0%, #cb6631 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faccb8', endColorstr='#cb6631',GradientType=0 );
+        /* IE6-9 */
+        border: none !important; }
   .filters-main-wrapper h4, .filters-main-wrapper h3, .filters-main-wrapper a,
   body > .searchandfilter h4,
   body > .searchandfilter h3,
@@ -1329,13 +1380,13 @@ div.featherlight .featherlight-content {
   padding: 45px 85px 0px; }
 
 .featherlight-content p[class^="mcp"] {
-  padding-left: 100px;
-  min-height: 88px;
-  position: relative; }
+  padding-left: 80px;
+  position: relative;
+  margin: 25px 0; }
   .featherlight-content p[class^="mcp"]:after {
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 36px;
+    background-size: 26px;
     border: 2px solid #000;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -1344,17 +1395,19 @@ div.featherlight .featherlight-content {
     bottom: 0;
     content: '';
     position: absolute;
-    height: 84px;
+    height: 55px;
     left: 0;
     margin: auto;
     top: 0;
-    width: 84px; }
+    width: 55px; }
 .featherlight-content .mcp-color-smiley:after {
   background-image: url("../images/smileyBlack.png"); }
 .featherlight-content .mcp-color-blacknosmiley:after {
-  background-color: #000; }
-.featherlight-content .mcp-color-blacksmiley:after {
+  background-color: #000;
   background-image: url("../images/smileyWhite.png"); }
+.featherlight-content .mcp-color-blacksmiley:after {
+  background-image: url("../images/smileyWhite.png");
+  background-color: #000; }
 
 figcaption.wp-caption-text {
   font-size: 13px; }

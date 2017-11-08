@@ -503,6 +503,18 @@ jQuery(function($){
 
     }
 
+    $.fn.extend({
+        hasClasses: function (selectors) {
+            var self = this;
+            for (var i in selectors) {
+                if ($(self).hasClass(selectors[i]))
+                    return true;
+            }
+            return false;
+        }
+    });
+
+
     function convert_radion_to_color(){
         $('.sf-field-taxonomy-product-color ul li[class*="sf-item-"]').each(function(){
             var $list_item_wrapper = $(this);
@@ -511,10 +523,21 @@ jQuery(function($){
             $list_item_text = $list_item_text.replace('-', '');
             $list_item_text = $list_item_text.replace(/ /g, '');
 
-            $list_item_wrapper.find('label').css({
-                'background-color'  : $list_item_text
-            });
+            var excluded_class_names = [
+                'silver',
+                'gold',
+                'copper'
+            ];
 
+            var $label = $list_item_wrapper.find('label');
+
+            if( ! $label.hasClasses(excluded_class_names) ){
+
+                $label.css({
+                    'background-color'  : $list_item_text
+                });
+
+            }
             $($list_item_wrapper).animate({
                 opacity: 1
             });
@@ -573,8 +596,10 @@ jQuery(function($){
             console.log($(".hidden-filters .sf-field-taxonomy-product-profile input:checked").val());
             var element = $( "#" + $(".hidden-filters .sf-field-taxonomy-product-profile input:checked").val() );
 
-            if( !$(element).html().trim() == '' ){
-                $.featherlight( $(element).html() );
+            if( $(element) ){
+                if( !$(element).html().trim() == '' ){
+                    $.featherlight( $(element).html() );
+                }
             }
 
         })

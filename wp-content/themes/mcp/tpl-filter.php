@@ -21,7 +21,7 @@ get_header(); ?>
 					</div>
 				</div>
 				<div class="pull-right sort-wrapper">
-					<?php echo do_shortcode( '[searchandfilter id="192"]' ); ?>
+					<?php echo do_shortcode( get_field( "product_listing_shortcode_" . ICL_LANGUAGE_CODE ) ); ?>
 				</div>
 			</div>
 
@@ -33,7 +33,7 @@ get_header(); ?>
 						</div>
 						<div class="hidden-filters">
 							<nav id="menu-mobile">
-								<?php echo do_shortcode( '[searchandfilter id="192"]' ); ?>
+								<?php echo do_shortcode( get_field( "product_listing_shortcode_" . ICL_LANGUAGE_CODE ) ); ?>
 							</nav>
 						</div>
 					</div>

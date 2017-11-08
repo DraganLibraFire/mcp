@@ -241,8 +241,19 @@ class Search_Filter_Taxonomy_Walker extends Walker_Category {
 				    // no rows found
 				
 				endif;
-				$link .= "<label><input data-related-colors='".json_encode($related_colors)."' type='".$this->type."' name='".$sf_name."[]' value='".$cat_slug."'".$checked.$disabled." data-sf-cr='".SF_TAX_PRE.$cat_id."' data-sf-hide-empty='".intval($hide_empty)."' /> "."<span class='radio-button-after'></span><span class='category-name'>$cat_name</span>";
-			
+
+//				$filtered_term = get_term($cat_id);
+
+//				$filtered_term_data = get_term_meta($cat_id, 'lang_code')[0];
+//				$filtered_term_data = $filtered_term_data == '' ? 'nl' : $filtered_term_data;
+
+//				if( $filtered_term_data == ICL_LANGUAGE_CODE ){
+//				echo "<pre>"; print_r( $category ); echo "</pre>" ;
+//					$category->taxonomy
+//			echo "<pre>"; print_r( $filtered_term ); echo "</pre>" ; exit();
+
+				$link .= "<label class='".$cat_slug."'><input data-related-colors='".json_encode($related_colors)."' type='".$this->type."' name='".$sf_name."[]' value='".$cat_slug."'".$checked.$disabled." data-sf-cr='".SF_TAX_PRE.$cat_id."' data-sf-hide-empty='".intval($hide_empty)."' /> "."<span class='radio-button-after'></span><span class='category-name'>$cat_name </span>";
+//				}
 
 				
 				if ( !empty($show_count) )

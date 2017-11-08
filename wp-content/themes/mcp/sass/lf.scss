@@ -1376,6 +1376,7 @@ body {
     max-width: 275px;
     img {
       max-height: 60px;
+      max-width: 150px;
     }
   }
 }
@@ -1455,6 +1456,7 @@ body > .searchandfilter{
       &.has_smiley{
         &.black_smiley {
           label {
+            border-color: #95989a !important;
             &:after {
               background-image: url("../images/smileyBlack.png");
             }
@@ -1529,6 +1531,44 @@ body > .searchandfilter{
     label {
       position: relative;
       cursor: pointer;
+
+      &[class*='silver'],
+      &[class*='gold'],
+      &[class*='copper']{
+        .radio-button-after{
+          left: -4px !important;
+        }
+      }
+
+      &[class*='silver']{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dbdbdb+0,818282+100 */
+        background: #dbdbdb; /* Old browsers */
+        background: -moz-linear-gradient(top,  #dbdbdb 0%, #818282 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #dbdbdb 0%,#818282 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #dbdbdb 0%,#818282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#818282',GradientType=0 ); /* IE6-9 */
+        border: none !important;
+      }
+
+      &[class*='gold']{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9ef98+0,c39b49+100 */
+        background: #f9ef98; /* Old browsers */
+        background: -moz-linear-gradient(top,  #f9ef98 0%, #c39b49 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #f9ef98 0%,#c39b49 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #f9ef98 0%,#c39b49 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9ef98', endColorstr='#c39b49',GradientType=0 ); /* IE6-9 */
+        border: none !important;
+      }
+
+      &[class*='copper']{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#faccb8+0,cb6631+100 */
+        background: #faccb8; /* Old browsers */
+        background: -moz-linear-gradient(top,  #faccb8 0%, #cb6631 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #faccb8 0%,#cb6631 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #faccb8 0%,#cb6631 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faccb8', endColorstr='#cb6631',GradientType=0 ); /* IE6-9 */
+        border: none !important;
+      }
     }
   }
   h4, h3, a {
@@ -1647,23 +1687,23 @@ div.featherlight {
 }
 .featherlight-content {
   p[class^="mcp"] {
-    padding-left: 100px;
-    min-height: 88px;
+    padding-left: 80px;
     position: relative;
+    margin: 25px 0;
     &:after {
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 36px;
+      background-size: 26px;
       border: 2px solid $main_dark;
       @include border-radius(50%);
       bottom: 0;
       content: '';
       position: absolute;
-      height: 84px;
+      height: 55px;
       left: 0;
       margin: auto;
       top: 0;
-      width: 84px;
+      width: 55px;
     }
   }
   .mcp-color-smiley {
@@ -1679,11 +1719,13 @@ div.featherlight {
   .mcp-color-blacknosmiley {
     &:after {
       background-color: $main_dark;
+      background-image: url("../images/smileyWhite.png");
     }
   }
   .mcp-color-blacksmiley {
     &:after {
       background-image: url("../images/smileyWhite.png");
+      background-color: #000;
     }
   }
 }

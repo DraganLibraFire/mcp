@@ -1,4 +1,7 @@
 <?php
+//apply_filters('get_term', function( $arg1, $arg2, $arg3){
+//    return $arg1;
+//}, 1);
 add_action('admin_menu', 'my_admin_menu');
 
 function my_admin_menu()
@@ -253,6 +256,8 @@ class LF_Import
     }
 
     public function update_categories_csv( $file, $type ){
+        $LANGUAGE_CODE = ICL_LANGUAGE_CODE;
+
         $tmpName = $file['csv']['tmp_name'];
         $csvAsArray = $this->csv2array($tmpName, "*");
 
@@ -266,6 +271,9 @@ class LF_Import
         foreach ($array as $key => $fields) {
             $fields = $this->array_combine2($this->HEADER, $fields);
             $name = explode(";", $fields['name'])[0];
+
+            if( $name == '' ) continue;
+
             $children = $fields['children'];
             $logo = $fields['logo'];
             $slug = $fields['slug'];
@@ -281,8 +289,13 @@ class LF_Import
                         'slug' => $slug,
                     )
                 );
-            }
 
+                add_term_meta($new_term['term_id'], 'lang_code', $LANGUAGE_CODE );
+            } else{
+//                wp_update_term( $new_term['term_id'], $type, array(
+//                    'slug' => $slug
+//                ) );
+            }
 
             if( trim($logo) != '' ){
                 $image_attachment_id = $this->download_image( $logo );
@@ -298,6 +311,9 @@ class LF_Import
 
                     if ( !$new_term_child ) {
                         $new_term_child = wp_insert_term($child_subcat_name, $type, array( 'parent' => $new_term['term_id'] ) );
+
+                        add_term_meta($new_term_child['term_id'], 'lang_code', $LANGUAGE_CODE );
+
                     }
 
                     if( trim($subchildren[ $child_key ]) != '' ){
@@ -307,6 +323,9 @@ class LF_Import
 
                         foreach ($sub_sub_children_array as $sub_sub_children_array_item) {
                             wp_insert_term($sub_sub_children_array_item, $type, array( 'parent' => $new_term_child['term_id'] ) );
+
+                            add_term_meta($sub_sub_children_array_item['term_id'], 'lang_code', $LANGUAGE_CODE );
+
                         }
 
                     }
