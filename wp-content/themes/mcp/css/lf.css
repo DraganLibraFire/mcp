@@ -1196,7 +1196,7 @@ body > .searchandfilter {
       text-align: center; }
     .filters-main-wrapper .searchandfilter li li,
     body > .searchandfilter .searchandfilter li li {
-      padding: 1px 0; }
+      padding: 0; }
   .filters-main-wrapper li,
   body > .searchandfilter li {
     font-family: "Roboto", sans-serif;
@@ -1236,7 +1236,8 @@ body > .searchandfilter {
     .filters-main-wrapper li label,
     body > .searchandfilter li label {
       position: relative;
-      cursor: pointer; }
+      cursor: pointer;
+      padding: 1px 0; }
       .filters-main-wrapper li label[class*='silver'] .radio-button-after, .filters-main-wrapper li label[class*='gold'] .radio-button-after, .filters-main-wrapper li label[class*='copper'] .radio-button-after,
       body > .searchandfilter li label[class*='silver'] .radio-button-after,
       body > .searchandfilter li label[class*='gold'] .radio-button-after,

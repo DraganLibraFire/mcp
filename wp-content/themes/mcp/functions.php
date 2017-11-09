@@ -588,3 +588,19 @@ function get_page_by_post_name($post_name, $output = OBJECT, $post_type = 'produ
 //
 //	});
 //}
+add_filter('manage_product_posts_columns', 'bs_event_table_head');
+function bs_event_table_head( $defaults ) {
+	$defaults['lang_code']  = 'Language';
+	return $defaults;
+}
+
+add_action( 'manage_product_posts_custom_column', 'bs_event_table_content', 10, 2 );
+
+function bs_event_table_content( $column_name, $post_id ) {
+	if ($column_name == 'lang_code') {
+		$event_date = get_post_meta( $post_id, 'lang_code', true );
+		echo strtoupper(str_replace("-", "", $event_date));
+	}
+
+
+}

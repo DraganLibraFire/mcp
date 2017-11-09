@@ -49,7 +49,16 @@ class Search_Filter_Get_Results
 		$this->rel_query_args['taxonomies'] = array();
 		$this->rel_query_args['post_date'] = array();
 		$this->rel_query_args['post_meta'] = array();
-		
+
+//		array(
+//				'relation' => 'AND',
+//				array(
+//						'key'     => 'lang_code',
+//						'value'   => ICL_LANGUAGE_CODE,
+//						'compare' => '='
+//				)
+//		)
+
 		add_filter( 'query_vars', array($this, 'wpse52480_query_vars') );
 	}
 	
@@ -91,7 +100,8 @@ class Search_Filter_Get_Results
 		{
 			add_filter('the_permalink', array($this, 'maintain_search_settings'));
 		}
-				
+
+
 		$query = new WP_Query($args);
 		
 		if($sf_form_data->settings("force_is_search")==1)
@@ -364,7 +374,17 @@ class Search_Filter_Get_Results
 		
 		//posts per page
 		$args['posts_per_page'] = $sf_form_data->settings('results_per_page') == "" ? get_option('posts_per_page') : $sf_form_data->settings('results_per_page');
-		
+
+
+		$args['meta_query'] = array(
+				'relation' => 'OR',
+				array(
+						'key'     => 'lang_code',
+						'value'   => ICL_LANGUAGE_CODE,
+						'compare' => 'LIKE'
+				)
+		);
+
 		//post status
 		if($sf_form_data->settings('post_status')!="")
 		{

@@ -195,7 +195,7 @@ class Search_Filter_Setup_Query
 				}
 			}
 		}
-		
+
 		return $where;
 	}
 	

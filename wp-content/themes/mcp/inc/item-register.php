@@ -1,5 +1,5 @@
 <?php
-add_action( 'init', 'codex_brand_init' );
+add_action( 'init', 'codex_brand_init', 2 );
 function codex_brand_init() {
     $labels = array(
         'name'               => _x( 'Product', 'post type general name', 'mcp' ),

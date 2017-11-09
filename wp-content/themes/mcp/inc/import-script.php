@@ -19,6 +19,7 @@ class LF_Import
     public $DELIMITER;
     public $ENCLOSURE;
     public $HEADER;
+    public $LANGUAGE_CODE;
 
     public function __construct()
     {
@@ -48,9 +49,19 @@ class LF_Import
     {
         $insert_terms = [];
 
+        $translatable_content = [
+            'product-category',
+            'product-sex',
+            'product-gelegenheden',
+        ];
+
         foreach ($terms as $term) {
 
-            $existent_term = get_term_by($by, $term, $taxonomy, ARRAY_A);
+            if( in_array($taxonomy, $translatable_content)){
+                $existent_term = get_term_by('slug', sanitize_title($term . $this->LANGUAGE_CODE ), $taxonomy, ARRAY_A);
+            } else{
+                $existent_term = get_term_by($by, $term, $taxonomy, ARRAY_A);
+            }
 
             if ($existent_term && isset($existent_term['term_id'])) {
 
@@ -84,6 +95,7 @@ class LF_Import
         $new = 0;
         $tmpName = $file['csv']['tmp_name'];
         $csvAsArray = $this->csv2array($tmpName, $this->DELIMITER);
+        $this->LANGUAGE_CODE = $_POST['lang_code'] == 'nl' ? '' : '-' . $_POST['lang_code'];
 
         if ($this->JOB_DONE) return;
         set_time_limit(0);
@@ -163,6 +175,8 @@ class LF_Import
         if( $product_id == 0 ){
             echo "<pre>"; print_r( 'Error' ); echo "</pre>" ;
         }
+
+        add_post_meta( $product_id, 'lang_code', $this->LANGUAGE_CODE);
 
 
         $this->add_product_terms( $product_id, $product['categories'], 'product-category');
@@ -256,7 +270,7 @@ class LF_Import
     }
 
     public function update_categories_csv( $file, $type ){
-        $LANGUAGE_CODE = ICL_LANGUAGE_CODE;
+        $LANGUAGE_CODE = $_POST['lang_code'];
 
         $tmpName = $file['csv']['tmp_name'];
         $csvAsArray = $this->csv2array($tmpName, "*");
@@ -279,7 +293,11 @@ class LF_Import
             $slug = $fields['slug'];
             $subchildren = explode(";", $fields['subchildren']);
 
-            $new_term = term_exists($name, $type);
+            if( $slug == '' or is_null($slug) ){
+                $slug = sanitize_title( $name . '-' . $LANGUAGE_CODE);
+            }
+
+            $new_term = term_exists($slug, $type);
 
             if ( !$new_term ) {
                 $new_term = wp_insert_term(
@@ -310,9 +328,17 @@ class LF_Import
                     $new_term_child = term_exists($child_subcat_name, $type);
 
                     if ( !$new_term_child ) {
-                        $new_term_child = wp_insert_term($child_subcat_name, $type, array( 'parent' => $new_term['term_id'] ) );
 
-                        add_term_meta($new_term_child['term_id'], 'lang_code', $LANGUAGE_CODE );
+                        $slug1 = sanitize_title( $child_subcat_name . '-' . $LANGUAGE_CODE);
+
+                        $new_term1 = term_exists($slug1, $type);
+
+                        if( !$new_term1 ){
+                            $new_term_child = wp_insert_term($child_subcat_name, $type, array( 'parent' => $new_term['term_id'], 'slug' => $slug1 ) );
+                            add_term_meta($new_term_child['term_id'], 'lang_code', $LANGUAGE_CODE );
+
+                        }
+
 
                     }
 
@@ -322,9 +348,17 @@ class LF_Import
                         $sub_sub_children_array = explode(",", $sub_sub_children);
 
                         foreach ($sub_sub_children_array as $sub_sub_children_array_item) {
-                            wp_insert_term($sub_sub_children_array_item, $type, array( 'parent' => $new_term_child['term_id'] ) );
 
-                            add_term_meta($sub_sub_children_array_item['term_id'], 'lang_code', $LANGUAGE_CODE );
+                            $slug2 = sanitize_title( $sub_sub_children_array_item . '-' . $LANGUAGE_CODE);
+
+                            $new_term2 = term_exists($slug2, $type);
+
+                            if( !$new_term2 ){
+                                wp_insert_term($sub_sub_children_array_item, $type, array( 'parent' => $new_term_child['term_id'], 'slug' => $slug2 ) );
+
+                                add_term_meta($sub_sub_children_array_item['term_id'], 'lang_code', $LANGUAGE_CODE );
+                            }
+
 
                         }
 
@@ -429,6 +463,7 @@ class LF_Import
                         <thead>
                         <th>CSV File</th>
                         <th>Type (product or taxonomy)</th>
+                        <th>Language</th>
                         <th>Action</th>
                         </thead>
                         <tbody>
@@ -447,8 +482,15 @@ class LF_Import
                                 </select>
                             </td>
                             <td>
+                                <select name="lang_code">
+                                    <option value="nl">NL</option>
+                                    <option value="en">EN</option>
+                                </select>
+                            </td>
+                            <td>
                                 <input type="submit" name="import_LF_CSV" value="IMPORT">
                             </td>
+
                         </tr>
                         </tbody>
                     </table>
@@ -571,4 +613,64 @@ class LF_Import
 
 
 }
+//
+//add_action('no-init', function(){
+//    $taxsss = [
+//        'product-sex',
+//        'product-profile',
+//        'product-color',
+//        'product-category',
+//        'product-brands',
+//        'product-gelegenheden'
+//    ];
+//    foreach ($taxsss as $get_object_taxonomy) {
+//
+//        if( $get_object_taxonomy != 'product' ){
+//            $get_terms_args = array(
+//                'taxonomy' => $get_object_taxonomy,
+//                'fields' => 'ids',
+//                'hide_empty' => false,
+//            );
+//
+//            $update_terms = get_terms($get_terms_args);
+//
+//            foreach ($update_terms as $update_id) {
+//                add_term_meta($update_id, 'lang_code', 'nl' );
+//            }
+//        }
+//
+//    }
+//}, 3);
+
+//add_action('initd', function(){
+//
+//    $taxsss = [
+//        'post_type'         => 'product',
+//        'posts_per_page'    => -1,
+//        'post_status'       => 'all',
+//        'meta_query' => array(
+//            array(
+//                'key'     => 'lang_code',
+//                'value'   => ICL_LANGUAGE_CODE,
+//                'compare' => 'LIKE'
+//            )
+//        )
+//    ];
+//
+//    $q = new WP_Query($taxsss);
+//
+//    if ( $q->have_posts() ) :
+//
+//        while( $q->have_posts() ) :
+//            $q->the_post();
+//
+//            echo "<pre>"; print_r( get_the_title() ); echo "</pre>";
+////            add_post_meta( get_the_ID(), 'lang_code', 'nl');
+//
+//        endwhile;
+//
+//    endif;
+//
+//}, 3);
+
 ?>

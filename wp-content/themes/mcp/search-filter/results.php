@@ -34,7 +34,14 @@ if ( $query->have_posts() )
         while ($query->have_posts())
         {
             $query->the_post();
-            get_template_part('template-parts/content', 'single-product');
+
+            $lang = get_post_meta( get_the_ID(), 'lang_code', true );
+
+            $lang = $lang == '' ? 'nl' : $lang;
+
+//            if( $lang == ICL_LANGUAGE_CODE ){
+                get_template_part('template-parts/content', 'single-product');
+//            }
         }
         ?>
     </ul>

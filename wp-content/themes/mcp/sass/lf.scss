@@ -1492,7 +1492,7 @@ body > .searchandfilter{
       }
       padding: 10px 0;
       li {
-        padding: 1px 0;
+        padding: 0;
       }
     }
   }
@@ -1531,6 +1531,7 @@ body > .searchandfilter{
     label {
       position: relative;
       cursor: pointer;
+      padding: 1px 0;
 
       &[class*='silver'],
       &[class*='gold'],

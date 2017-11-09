@@ -75,7 +75,7 @@ jQuery(function($){
 
 
             $crumb.addClass('single-crumb');
-            $crumb.html( selected_shit[ crumb ] );
+            $crumb.html( selected_shit[ crumb].replace(' en', '') );
             $parent.append($crumb);
             $crumb.append( $remove_crumb );
 
