@@ -112,9 +112,14 @@ jQuery(function($){
             if( this.checked ){
                 if( $(this).attr('data-sf-cr') != undefined ){
 
-                    var name_without_dash = $(this).val().split("-")[0];
-                    var name_clean = name_without_dash.replace(/\-/g, " ");
-                    selected_shit[ $(this).attr('data-sf-cr') ] = name_clean;
+                    if( $(this).attr('name') == '_sft_product-color[]' ){
+                        var name_without_dash = $(this).val().split("-")[0];
+                        var name_clean = name_without_dash.replace(/\-/g, " ");
+                        selected_shit[ $(this).attr('data-sf-cr') ] = name_clean;
+                    } else{
+                        selected_shit[ $(this).attr('data-sf-cr') ] = $(this).val().replace(/\-/g, " ");
+                    }
+
                 }
             }
         })
