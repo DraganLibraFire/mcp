@@ -282,6 +282,8 @@ class LF_Import
         $array = $csvAsArray;
         $this->HEADER = array_shift($array);
 
+        $updated = 0;
+        $new = 0;
         foreach ($array as $key => $fields) {
             $fields = $this->array_combine2($this->HEADER, $fields);
             $name = explode(";", $fields['name'])[0];
@@ -297,7 +299,12 @@ class LF_Import
                 $slug = sanitize_title( $name . '-' . $LANGUAGE_CODE);
             }
 
-            $new_term = term_exists($slug, $type);
+            if( $type == 'product-color' ){
+                $new_term = term_exists($name, $type);
+            } else{
+                $new_term = term_exists($slug, $type);
+            }
+
 
             if ( !$new_term ) {
                 $new_term = wp_insert_term(
@@ -309,10 +316,19 @@ class LF_Import
                 );
 
                 add_term_meta($new_term['term_id'], 'lang_code', $LANGUAGE_CODE );
+
+                $new++;
+
             } else{
-//                wp_update_term( $new_term['term_id'], $type, array(
-//                    'slug' => $slug
-//                ) );
+
+                wp_update_term( $new_term['term_id'], $type, array(
+                    'slug' => $slug
+                ) );
+
+                $updated++;
+
+                update_term_meta($new_term['term_id'], 'lang_code', $LANGUAGE_CODE );
+
             }
 
             if( trim($logo) != '' ){
@@ -378,7 +394,7 @@ class LF_Import
         wp_update_term_count_now($update_terms, $type);
 
         $this->JOB_DONE = true;
-        wp_redirect( $_SERVER['HTTP_REFERER'] . "&imported" );
+        wp_redirect( $_SERVER['HTTP_REFERER'] . "&imported=$updated" . "&new=$new" );
 
     }
 
