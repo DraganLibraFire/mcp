@@ -561,7 +561,7 @@ body .select2-container--default .select2-results__option--highlighted[aria-sele
     top: 0;
     width: 100%; }
     .hero-section-main-wrapper .hero-section-absolute-position h1, .hero-section-main-wrapper .hero-section-absolute-position h2, .hero-section-main-wrapper .hero-section-absolute-position h3 {
-      font-size: 50px;
+      font-size: 56px;
       margin-bottom: 15px;
       margin-top: 15px; }
     .hero-section-main-wrapper .hero-section-absolute-position h1, .hero-section-main-wrapper .hero-section-absolute-position h2, .hero-section-main-wrapper .hero-section-absolute-position h3, .hero-section-main-wrapper .hero-section-absolute-position h4, .hero-section-main-wrapper .hero-section-absolute-position h5, .hero-section-main-wrapper .hero-section-absolute-position h6, .hero-section-main-wrapper .hero-section-absolute-position p, .hero-section-main-wrapper .hero-section-absolute-position a {
@@ -569,9 +569,10 @@ body .select2-container--default .select2-results__option--highlighted[aria-sele
     .hero-section-main-wrapper .hero-section-absolute-position a:hover {
       color: #f4a288; }
     .hero-section-main-wrapper .hero-section-absolute-position p {
-      font-size: 35px;
+      font-size: 30px;
       margin-bottom: 15px;
-      margin-top: 15px; }
+      margin-top: 15px;
+      opacity: 0.8; }
     .hero-section-main-wrapper .hero-section-absolute-position .header-hero-section-inner {
       padding-top: 10px; }
 
