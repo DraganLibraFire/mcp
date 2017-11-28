@@ -18,6 +18,9 @@ Tags:
 .bloggers-products-home-slider{
     display: none;
 }
+.tax-product-profile .profiles-radio-wrapper option{
+    display: none;
+}
 
 .nav {
     padding-left: 0;

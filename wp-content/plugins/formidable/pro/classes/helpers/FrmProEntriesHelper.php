@@ -48,7 +48,7 @@ class FrmProEntriesHelper{
             return $action;
         }
 
-        $entry = FrmAppHelper::get_param('entry', 0);
+		$entry = FrmAppHelper::get_param( 'entry', 0, 'get', 'sanitize_text_field' );
 
         if ( ! self::user_can_edit($entry, $form) ) {
             $action = 'new';
@@ -321,7 +321,7 @@ class FrmProEntriesHelper{
     }
 
     public static function get_field($field = 'is_draft', $id) {
-        $entry = FrmAppHelper::check_cache( $id, 'frm_entry' );
+        $entry = FrmDb::check_cache( $id, 'frm_entry' );
         if ( $entry && isset($entry->$field) ) {
             return $entry->{$field};
         }

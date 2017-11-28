@@ -44,6 +44,11 @@ class FrmProFieldsHelper{
 	 * @param string $value
 	 */
 	public static function replace_non_standard_formidable_shortcodes( $args, &$value ) {
+		if ( strpos( $value, '[' ) === false ) {
+			// don't run checks if there are no shortcodes
+			return;
+		}
+
 		$default_args = array(
 			'allow_array' => false,
 			'field' => false,
@@ -1658,10 +1663,10 @@ class FrmProFieldsHelper{
 
 		if ( FrmProFormsHelper::going_to_prev( $atts['form_id'] ) ) {
 			$page_numbers['go_back'] = true;
-			$page_numbers['next_page'] = FrmAppHelper::get_param( 'frm_next_page' );
+			$page_numbers['next_page'] = FrmAppHelper::get_param( 'frm_next_page', 0, 'get', 'absint' );
 			$page_numbers['prev_page'] = $page_numbers['set_prev'] = $page_numbers['next_page'] - 1;
 		} else if ( FrmProFormsHelper::saving_draft() && ! $atts['error'] ) {
-			$page_numbers['next_page'] = FrmAppHelper::get_param( 'frm_page_order_' . $atts['form_id'], false );
+			$page_numbers['next_page'] = FrmAppHelper::get_param( 'frm_page_order_' . $atts['form_id'], false, 'get', 'absint' );
 
 			// If next_page is zero, assume user clicked "Save Draft" on last page of form
 			if ( $page_numbers['next_page'] == 0 ) {
@@ -1784,6 +1789,11 @@ class FrmProFieldsHelper{
 				}
 			break;
 		}
+
+		/**
+		 * @since 2.05.06
+		 */
+		do_action( 'frm_load_ajax_field_scripts', array( 'field' => $f, 'is_first' => $ajax_now ) );
 	}
 
 	/**
@@ -2297,7 +2307,7 @@ DEFAULT_HTML;
             }
 		}
 
-        return $val;
+        return apply_filters( 'frm_xml_field_export_value', $val, $field );
     }
 
 	public static function get_file_icon( $media_id ) {

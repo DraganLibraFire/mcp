@@ -590,6 +590,7 @@ if ( ! $submit_style ) { ?>
 .<?php echo esc_html( $style_class ) ?> .frm_loading_form .frm_button_submit:active,
 .<?php echo esc_html( $style_class ) ?> .frm_loading_form .frm_button_submit:focus{
 	color: transparent <?php echo esc_html( $important ) ?>;
+	background: <?php echo esc_html( $submit_bg_color . $important ) ?>;
 }
 
 .<?php echo esc_html( $style_class ) ?> .frm_loading_form .frm_button_submit:before {
@@ -676,6 +677,10 @@ if ( ! $submit_style ) { ?>
     border-color:#<?php echo esc_html( $border_color_error . $important ) ?>;
     border-width:<?php echo esc_html( $border_width_error . $important ) ?>;
     border-style:<?php echo esc_html( $border_style_error . $important ) ?>;
+}
+
+.<?php echo esc_html( $style_class ) ?> .frm_blank_field .sigWrapper{
+	border-color:#<?php echo esc_html( $border_color_error ) ?> !important;
 }
 
 .<?php echo esc_html( $style_class ) ?> .frm_error{
