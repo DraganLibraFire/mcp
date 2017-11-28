@@ -679,7 +679,11 @@ body {
 /*-------------------- Hero section styling ---------------*/
 .hero-section-main-wrapper {
   background-size: cover;
-  max-height: 540px;
+  max-height: 590px;
+  background-position: center;
+  .container-big{
+    max-width: 1780px;
+  }
   .not-visible {
     visibility: hidden;
     opacity: 0;

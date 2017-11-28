@@ -545,7 +545,10 @@ body .select2-container--default .select2-results__option--highlighted[aria-sele
 /*-------------------- Hero section styling ---------------*/
 .hero-section-main-wrapper {
   background-size: cover;
-  max-height: 540px; }
+  max-height: 590px;
+  background-position: center; }
+  .hero-section-main-wrapper .container-big {
+    max-width: 1780px; }
   .hero-section-main-wrapper .not-visible {
     visibility: hidden;
     opacity: 0; }
