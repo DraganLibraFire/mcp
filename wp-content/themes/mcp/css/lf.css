@@ -2743,7 +2743,7 @@ body:not(.page-template-tpl-filter) .featherlight-content {
     padding: 0 2px; }
 
   .hero-section-main-wrapper .hero-section-absolute-position h1, .hero-section-main-wrapper .hero-section-absolute-position h2, .hero-section-main-wrapper .hero-section-absolute-position h3 {
-    font-size: 64px; }
+    font-size: 54px; }
 
   .home .discover-image-wrapper {
     margin-top: -119px; }
@@ -2801,10 +2801,10 @@ body:not(.page-template-tpl-filter) .featherlight-content {
 /*(max-width: 1530px)*/
 @media all and (max-width: 1400px) {
   .hero-section-main-wrapper .hero-section-absolute-position h1, .hero-section-main-wrapper .hero-section-absolute-position h2, .hero-section-main-wrapper .hero-section-absolute-position h3 {
-    font-size: 62px; }
+    font-size: 47px; }
 
   .hero-section-main-wrapper .hero-section-absolute-position p {
-    font-size: 48px; } }
+    font-size: 25px; } }
 /*(max-width: 1450px)*/
 @media all and (max-width: 1300px) {
   body.home .container {
@@ -2818,9 +2818,9 @@ body:not(.page-template-tpl-filter) .featherlight-content {
     margin-top: -55px; }
 
   .hero-section-main-wrapper .hero-section-absolute-position h1, .hero-section-main-wrapper .hero-section-absolute-position h2, .hero-section-main-wrapper .hero-section-absolute-position h3 {
-    font-size: 55px; }
+    font-size: 45px; }
   .hero-section-main-wrapper .hero-section-absolute-position p {
-    font-size: 35px; } }
+    font-size: 25px; } }
 @media all and (max-width: 1285px) {
   header #site-navigation > div {
     background-color: #fff;
@@ -3005,9 +3005,9 @@ body:not(.page-template-tpl-filter) .featherlight-content {
     background-position: center; }
 
   .hero-section-main-wrapper .hero-section-absolute-position h1, .hero-section-main-wrapper .hero-section-absolute-position h2, .hero-section-main-wrapper .hero-section-absolute-position h3 {
-    font-size: 45px; }
+    font-size: 35px; }
   .hero-section-main-wrapper .hero-section-absolute-position p {
-    font-size: 25px; }
+    font-size: 19px; }
 
   .home .discover-image-wrapper {
     text-align: center;
