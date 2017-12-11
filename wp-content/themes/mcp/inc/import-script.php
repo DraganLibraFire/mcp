@@ -81,6 +81,20 @@ class LF_Import
 //
 //            }
 
+            if( $taxonomy == 'product-color' ){
+
+                $color_terms = get_terms( array(
+                    'hide_empty'    => false,
+                    'taxonomy'      => $taxonomy,
+                    'search'        => explode("-", $term)[0]
+                ) );
+                
+                if( count($color_terms) > 0 ){
+                    foreach ($color_terms as $color_term) {
+                        $insert_terms[] = (int)$color_term->term_id;
+                    }
+                }
+            }
             //Fill the array of terms for later use on wp_set_object_terms
             $insert_terms[] = (int)$term_id;
 
@@ -122,6 +136,7 @@ class LF_Import
                 'profiles'      => explode(";", $fields['profiles']),
                 'occasions'     => explode(";", $fields['occasions']),
                 'sex'           => explode(";", $fields['gender']),
+                'index'         => ($fields['index']),
                 'attachments'   => array()
             ];
 
@@ -340,10 +355,9 @@ class LF_Import
                 $children_array = explode(";", $children);
 
                 foreach ($children_array as $child_key => $child_subcat_name) {
-
                     $new_term_child = term_exists($child_subcat_name, $type);
 
-                    if ( !$new_term_child ) {
+                    if ( !$new_term_child && $child_subcat_name != '') {
 
                         $slug1 = sanitize_title( $child_subcat_name . '-' . $LANGUAGE_CODE);
 
@@ -351,6 +365,11 @@ class LF_Import
 
                         if( !$new_term1 ){
                             $new_term_child = wp_insert_term($child_subcat_name, $type, array( 'parent' => $new_term['term_id'], 'slug' => $slug1 ) );
+
+                            if( is_wp_error($new_term_child) ){
+                                echo "<pre>"; print_r( $children_array ); echo "</pre>" ; exit();
+
+                            }
                             add_term_meta($new_term_child['term_id'], 'lang_code', $LANGUAGE_CODE );
 
                         }
@@ -369,7 +388,7 @@ class LF_Import
 
                             $new_term2 = term_exists($slug2, $type);
 
-                            if( !$new_term2 ){
+                            if( !$new_term2 && $sub_sub_children_array_item){
                                 wp_insert_term($sub_sub_children_array_item, $type, array( 'parent' => $new_term_child['term_id'], 'slug' => $slug2 ) );
 
                                 add_term_meta($sub_sub_children_array_item['term_id'], 'lang_code', $LANGUAGE_CODE );
@@ -501,6 +520,7 @@ class LF_Import
                                 <select name="lang_code">
                                     <option value="nl">NL</option>
                                     <option value="en">EN</option>
+                                    <option value="fr">FR</option>
                                 </select>
                             </td>
                             <td>
@@ -658,12 +678,12 @@ class LF_Import
 //    }
 //}, 3);
 
-//add_action('initd', function(){
-//
-//    $taxsss = [
-//        'post_type'         => 'product',
-//        'posts_per_page'    => -1,
-//        'post_status'       => 'all',
+add_action('initd', function(){
+
+    $taxsss = [
+        'post_type'         => 'product',
+        'posts_per_page'    => -1,
+        'post_status'       => 'all',
 //        'meta_query' => array(
 //            array(
 //                'key'     => 'lang_code',
@@ -671,22 +691,40 @@ class LF_Import
 //                'compare' => 'LIKE'
 //            )
 //        )
-//    ];
-//
-//    $q = new WP_Query($taxsss);
-//
-//    if ( $q->have_posts() ) :
-//
-//        while( $q->have_posts() ) :
-//            $q->the_post();
-//
-//            echo "<pre>"; print_r( get_the_title() ); echo "</pre>";
-////            add_post_meta( get_the_ID(), 'lang_code', 'nl');
-//
-//        endwhile;
-//
-//    endif;
-//
-//}, 3);
+    ];
+
+    $q = new WP_Query($taxsss);
+    $taxonomy = 'product-color';
+    if ( $q->have_posts() ) :
+
+        while( $q->have_posts() ) :
+            $q->the_post();
+            $insert_terms = array();
+
+            $colors = wp_get_object_terms( get_the_ID(), $taxonomy );
+
+            if( is_array($colors) ){
+                foreach ($colors as $color) {
+                    $color_name = explode("-", $color->slug)[0];
+                    
+                    $color_terms = get_terms( array(
+                        'hide_empty'    => false,
+                        'taxonomy'      => $taxonomy,
+                        'search'        => $color_name
+                    ) );
+
+                    foreach ($color_terms as $color_term) {
+                        $insert_terms[] = (int)$color_term->term_id;
+
+                    }
+                }
+            }
+            wp_set_object_terms(get_the_ID(), $insert_terms, $taxonomy);
+
+        endwhile;
+
+    endif;
+
+}, 3);
 
 ?>

@@ -244,18 +244,20 @@ class Search_Filter_Taxonomy_Walker extends Walker_Category {
 
 				$filtered_term_data = get_term_meta($cat_id, 'lang_code')[0];
 //				$filtered_term_data = $filtered_term_data == '' ? 'nl' : $filtered_term_data;
-
 				$translatable_content = [
 					'product-category',
 					'product-sex',
 					'product-gelegenheden',
+					'product-brands',
 				];
-				if( $filtered_term_data == ICL_LANGUAGE_CODE && in_array($category->taxonomy, $translatable_content)){
+				$has_li = false;
 
+				if( $filtered_term_data == ICL_LANGUAGE_CODE && in_array($category->taxonomy, $translatable_content)){
 					$link .= "<label class='".$cat_slug."'><input data-related-colors='".json_encode($related_colors)."' type='".$this->type."' name='".$sf_name."[]' value='".$cat_slug."'".$checked.$disabled." data-sf-cr='".SF_TAX_PRE.$cat_id."' data-sf-hide-empty='".intval($hide_empty)."' /> "."<span class='radio-button-after'></span><span class='category-name'>$cat_name </span>";
+				    $has_li = true;
 				} else if( !in_array($category->taxonomy, $translatable_content )){
 					$link .= "<label class='".$cat_slug."'><input data-related-colors='".json_encode($related_colors)."' type='".$this->type."' name='".$sf_name."[]' value='".$cat_slug."'".$checked.$disabled." data-sf-cr='".SF_TAX_PRE.$cat_id."' data-sf-hide-empty='".intval($hide_empty)."' /> "."<span class='radio-button-after'></span><span class='category-name'>$cat_name </span>";
-
+                    $has_li = true;
 				}
 
 
@@ -269,24 +271,25 @@ class Search_Filter_Taxonomy_Walker extends Walker_Category {
 			
 				$link .= "</label>";
 			
-				
-				if ( 'list' == $args['style'] ) {
-					
-					$output .= "\t<li";
-					$class = SF_ITEM_CLASS_PRE . $category->term_id.$hidden;
-					if ( !empty($current_category) ) {
-						$_current_category = get_term( $current_category, $category->taxonomy );
-						if ( $category->term_id == $current_category )
-							$class .=  ' current-cat';
-						elseif ( $category->term_id == $_current_category->parent )
-							$class .=  ' current-cat-parent';
-					}
-					$output .=  ' class="' . $class . '"';
-					$output .= ">$link\n";
-				
-				} else {
-					$output .= "\t$link<br />\n";
-				}
+				if( $has_li ){
+                    if ( 'list' == $args['style'] ) {
+                        $output .= "\t<li";
+                        $class = SF_ITEM_CLASS_PRE . $category->term_id.$hidden;
+                        if ( !empty($current_category) ) {
+                            $_current_category = get_term( $current_category, $category->taxonomy );
+                            if ( $category->term_id == $current_category )
+                                $class .=  ' current-cat';
+                            elseif ( $category->term_id == $_current_category->parent )
+                                $class .=  ' current-cat-parent';
+                        }
+                        $output .=  ' class="' . $class . '"';
+                        $output .= ">$link\n";
+
+                    }
+                    else {
+                        $output .= "\t$link<br />\n";
+                    }
+                }
 			//}
 			
 		}
